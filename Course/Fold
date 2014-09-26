@@ -1,0 +1,323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="generator" content="MediaWiki 1.19.5-1+deb7u1" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/haskellwiki/opensearch_desc.php" title="HaskellWiki (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="http://www.haskell.org/haskellwiki/api.php?action=rsd" />
+<link rel="copyright" href="/haskellwiki/HaskellWiki:Copyrights" />
+<link rel="alternate" type="application/atom+xml" title="HaskellWiki Atom feed" href="/haskellwiki/index.php?title=Special:RecentChanges&amp;feed=atom" />		<title>Fold - HaskellWiki</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/wikistatic/skins//common/shared.css?303";
+			@import "/wikistatic/skins//hawiki/main.css?303";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/wikistatic/skins//common/commonPrint.css?303" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/wikistatic/skins//hawiki/IE50Fixes.css?303";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/wikistatic/skins//hawiki/IE55Fixes.css?303";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/wikistatic/skins//hawiki/IE60Fixes.css?303";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/wikistatic/skins//hawiki/IE70Fixes.css?303";</style><![endif]-->
+		<!--[if lte IE 7]><script type="text/javascript" src="/wikistatic/skins//hawiki/IEFixes.js?303"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+                                                <script type="text/javascript">
+                        var isMSIE55 = (window.showModalDialog && window.clipboardData && window.createPopup); /*alert("test: " + isMSIE55);*/</script>
+
+		<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Fold","wgTitle":"Fold","wgCurRevisionId":55866,"wgArticleId":2178,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Glossary"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgRelevantPageName":"Fold","wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script>
+		<script type="text/javascript" src="/wikistatic/skins//common/wikibits.js?303"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+<script src="http://www.haskell.org/haskellwiki/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=hawiki&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Fold","wgTitle":"Fold","wgCurRevisionId":55866,"wgArticleId":2178,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Glossary"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgRelevantPageName":"Fold","wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":1,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"highlightbroken":1,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":1,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":1,"showtoolbar":1,"skin":"hawiki","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion":0,
+"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"variant":"en","language":"en","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false});;},{},{});mw.loader.implement("user.tokens",function($){mw.user.tokens.set({"editToken":"+\\","watchToken":false});;},{},{});
+
+/* cache key: wikidb:resourceloader:filter:minify-js:7:befcdb5e3b24ff89f900613de9ed4ea3 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax"]);
+}</script><style type="text/css">/*<![CDATA[*/
+.source-haskell {line-height: normal;}
+.source-haskell li, .source-haskell pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for haskell
+ * CSS class: source-haskell, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.haskell.source-haskell .de1, .haskell.source-haskell .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.haskell.source-haskell  {font-family:monospace;}
+.haskell.source-haskell .imp {font-weight: bold; color: red;}
+.haskell.source-haskell li, .haskell.source-haskell .li1 {font-weight: normal; vertical-align:top;}
+.haskell.source-haskell .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.haskell.source-haskell .li2 {font-weight: bold; vertical-align:top;}
+.haskell.source-haskell .kw1 {color: #06c; font-weight: bold;}
+.haskell.source-haskell .kw2 {color: #06c; font-weight: bold;}
+.haskell.source-haskell .kw3 {font-weight: bold;}
+.haskell.source-haskell .kw4 {color: #cccc00; font-weight: bold;}
+.haskell.source-haskell .kw5 {color: maroon;}
+.haskell.source-haskell .co1 {color: #5d478b; font-style: italic;}
+.haskell.source-haskell .co2 {color: #339933; font-weight: bold;}
+.haskell.source-haskell .coMULTI {color: #5d478b; font-style: italic;}
+.haskell.source-haskell .es0 {background-color: #3cb371; font-weight: bold;}
+.haskell.source-haskell .br0 {color: green;}
+.haskell.source-haskell .sy0 {color: #339933; font-weight: bold;}
+.haskell.source-haskell .st0 {background-color: #3cb371;}
+.haskell.source-haskell .nu0 {color: red;}
+.haskell.source-haskell .me1 {color: #060;}
+.haskell.source-haskell .ln-xtra, .haskell.source-haskell li.ln-xtra, .haskell.source-haskell div.ln-xtra {background-color: #ffc;}
+.haskell.source-haskell span.xtra { display:block; }
+
+/*]]>*/
+</style>	</head>
+<body class="mediawiki ltr ns-0 ns-subject page-Fold skin-hawiki">
+   <div id="topbar" class="noprint">
+	<div class="portlet noprint" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul><li><a class="homebutton" href="/haskellwiki/Haskell">Home</a></li>
+				<li id="pt-login"><a href="/haskellwiki/index.php?title=Special:UserLogin&amp;returnto=Fold">Log in</a></li>
+			</ul>
+		</div>
+	</div>
+        	  <div id="p-search">
+	    <div id="searchBody" class="pBody">
+	       <form action="/haskellwiki/index.php" id="searchform"><div>
+	          <input type='hidden' name="title" value="Special:Search"/>
+	          <input id="searchInput" name="search" type="text" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+
+	         </div></form>
+	    </div>
+	  </div>
+   </div>
+	<div id="globalWrapper">
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/wikistatic/haskellwiki_logo.png);" href="/haskellwiki/Haskell"></a>
+	</div>
+	<div id="column-content">
+        <div id="notice-area" class="noprint">
+        <!-- ?php $this->data['sitenotice'] = 'This is a test instance.  Do not edit, your changes will be lost.'; ? -->
+			        </div>
+        <div id="content-wrapper">
+	<div id="p-cactions" class="portlet noprint">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+	
+				 <li id="ca-nstab-main" class="selected"><a href="/haskellwiki/Fold">Page</a></li>
+				 <li id="ca-talk" class="new"><a href="/haskellwiki/index.php?title=Talk:Fold&amp;action=edit&amp;redlink=1">Discussion</a></li>
+				 <li id="ca-viewsource"><a href="/haskellwiki/index.php?title=Fold&amp;action=edit">View source</a></li>
+				 <li id="ca-history"><a href="/haskellwiki/index.php?title=Fold&amp;action=history">History</a></li>			</ul>
+		</div>
+	</div>
+                        <div id="content">
+		<a name="top" id="top"></a>
+                        <h1 id="firstHeading" class="firstHeading">Fold</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From HaskellWiki</h3>
+			<div id="contentSub"></div>
+			<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>In <a href="/haskellwiki/Functional_programming" title="Functional programming">functional programming</a>, <i>fold</i> (or <i>reduce</i>) is a family of <a href="/haskellwiki/Higher_order_function" title="Higher order function">higher order functions</a> that process a <a href="/haskellwiki/index.php?title=Data_structure&amp;action=edit&amp;redlink=1" class="new" title="Data structure (page does not exist)">data structure</a> in some order and build a return value. This is as opposed to the family of <i>unfold</i> functions which take a starting value and apply it to a function to generate a data structure. 
+</p>
+<table id="toc" class="toc"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Special_folds_for_nonempty_lists"><span class="tocnumber">2</span> <span class="toctext">Special folds for nonempty lists</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Tree-like_folds"><span class="tocnumber">3</span> <span class="toctext">Tree-like folds</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Folds_in_other_languages"><span class="tocnumber">4</span> <span class="toctext">Folds in other languages</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#List_folds_as_structural_transformations"><span class="tocnumber">5</span> <span class="toctext">List folds as structural transformations</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Examples"><span class="tocnumber">6</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#External_links"><span class="tocnumber">8</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td></tr></table>
+<h2> <span class="mw-headline" id="Overview">1 Overview</span></h2>
+<p>Typically, a fold deals with two things: a combining <a href="/haskellwiki/Function" title="Function">function</a>, and a <a href="/haskellwiki/index.php?title=Data_structure&amp;action=edit&amp;redlink=1" class="new" title="Data structure (page does not exist)">data structure</a>, typically a <a href="/haskellwiki/index.php?title=List_(computing)&amp;action=edit&amp;redlink=1" class="new" title="List (computing) (page does not exist)">list</a> of elements. The fold then proceeds to combine elements of the data structure using the function in some systematic way. For instance, we might write
+</p>
+<pre>fold (+) [1,2,3,4,5]
+</pre>
+<p>which would result in 1 + 2 + 3 + 4 + 5, which is 15. In this instance, + is an <a href="/haskellwiki/Associative_operation" title="Associative operation">associative operation</a> so how one parenthesizes the addition is irrelevant to what the final result value will be, although the operational details will differ as to <i>how</i> it will be calculated. To a rough approximation, you can think of the fold as replacing the commas in the list with the + operation.
+</p><p>However, in the general case, functions of two parameters are not associative, so the order in which one carries out the combination of the elements matters. On lists, there are two obvious ways to carry this out: either by recursively combining the first element with the results of combining the rest (called a <i>right fold</i>) or by recursively combining the results of combining all but the last element with the last one, (called a <i>left fold</i>). Also, in practice, it is convenient and natural to have an initial value which in the case of a right fold, is used when one reaches the end of the list, and in the case of a left fold, is what is initially combined with the first element of the list. This is perhaps clearer to see in the equations defining <code>foldr</code> and <code>foldl</code> in Haskell. Note that in Haskell, <code>[]</code> represents the empty list, and <code>(x:xs)</code> represents the list starting with x and where the rest of the list is xs.
+</p>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><pre class="de1"><span class="co1">-- if the list is empty, the result is the initial value z; else</span>
+<span class="co1">-- apply f to the first element and the result of folding the rest</span>
+<span class="kw3">foldr</span> f z <span class="br0">&#91;</span><span class="br0">&#93;</span>     <span class="sy0">=</span> z 
+<span class="kw3">foldr</span> f z <span class="br0">&#40;</span>x:xs<span class="br0">&#41;</span> <span class="sy0">=</span> f x <span class="br0">&#40;</span><span class="kw3">foldr</span> f z xs<span class="br0">&#41;</span> 
+&#160;
+<span class="co1">-- if the list is empty, the result is the initial value; else</span>
+<span class="co1">-- we recurse immediately, making the new initial value the result</span>
+<span class="co1">-- of combining the old initial value with the first element.</span>
+<span class="kw3">foldl</span> f z <span class="br0">&#91;</span><span class="br0">&#93;</span>     <span class="sy0">=</span> z                  
+<span class="kw3">foldl</span> f z <span class="br0">&#40;</span>x:xs<span class="br0">&#41;</span> <span class="sy0">=</span> <span class="kw3">foldl</span> f <span class="br0">&#40;</span>f z x<span class="br0">&#41;</span> xs</pre></div></div>
+<p>One important thing to note in the presence of <a href="/haskellwiki/Lazy_evaluation" title="Lazy evaluation"> lazy</a>, or <a href="/haskellwiki/index.php?title=Normal-order_evaluation&amp;action=edit&amp;redlink=1" class="new" title="Normal-order evaluation (page does not exist)"> normal-order</a> evaluation, is that foldr will immediately return the application of f to the recursive case of folding over the rest of the list. Thus, if f is able to produce some part of its result without reference to the recursive case, and the rest of the result is never demanded, then the recursion will stop. This allows right folds to operate on infinite lists. By contrast, foldl will immediately call itself with new parameters until it reaches the end of the list. This <a href="/haskellwiki/Tail_recursion" title="Tail recursion">tail recursion</a> can be efficiently compiled as a loop, but can't deal with infinite lists at all -- it will recurse forever in an <a href="/haskellwiki/index.php?title=Infinite_loop&amp;action=edit&amp;redlink=1" class="new" title="Infinite loop (page does not exist)">infinite loop</a>. Another technical point to be aware of in the case of left folds in a normal-order evaluation language is that the new initial parameter is not being evaluated before the recursive call is made. This can lead to stack overflows when one reaches the end of the list and tries to evaluate the resulting gigantic expression. For this reason, such languages often provide a stricter variant of left folding which forces the evaluation of the initial parameter before making the recursive call, in Haskell, this is the foldl' (note the apostrophe) function in the Data.List library. Combined with the speed of tail recursion, such folds are very efficient when lazy evaluation of the final result is impossible or undesirable.
+</p>
+<h2> <span class="mw-headline" id="Special_folds_for_nonempty_lists">2 Special folds for nonempty lists</span></h2>
+<p>One often wants to choose the <a href="/haskellwiki/index.php?title=Identity_element&amp;action=edit&amp;redlink=1" class="new" title="Identity element (page does not exist)">identity element</a> of the operation <i>f</i> as the initial value <i>z</i>. When no initial value seems appropriate, for example, when one wants to fold the function which computes the maximum of its two parameters over a list in order to get the maximum element of the list, there are variants of foldr and foldl which use the last and first element of the list respectively as the initial value. In Haskell and several other languages, these are called foldr1 and foldl1, the 1 making reference to the automatic provision of an initial element, and the fact that the lists they are applied to must have at least one element.
+</p><p>These folds use type-symmetrical binary operation: the types of both its arguments, and its result, must be the same. Richard Bird in his 2010 book "Pearls of Functional Algorithm Design" (Cambridge University Press 2010, <a href="/haskellwiki/Special:BookSources/9780521513388" class="internal mw-magiclink-isbn">ISBN 978-0-521-51338-8</a>, p. 42) proposes "a general fold function on non-empty lists" <code>foldrn</code> which transforms its last element, by applying an additional argument function to it, into a value of the result type before starting the folding itself, and is thus able to use type-asymmetrical binary operation like the regular <code>foldr</code> to produce a result of type different from the list's elements type.
+</p>
+<h2> <span class="mw-headline" id="Tree-like_folds">3 Tree-like folds</span></h2>
+<p>The use of initial value is <i>mandatory</i> when the combining function is <i>asymmetrical</i> in its types, i.e. when the type of its result is different from the type of list's elements. Then an initial value must be used, with the same type as that of the function's result, for a <i>linear</i> chain of applications to be possible, whether <i>left-</i> or <i>right-</i>oriented.
+</p><p>When the function is <i>symmetrical</i> in its types the parentheses may be placed in arbitrary fashion thus creating a <i>tree</i> of nested sub-expressions, e.g. ((1 + 2) + (3 + 4)) + 5. If the binary operation is also <i>associative</i> this value will be well-defined, i.e. same for any parenthesization, although the operational details of <i>how</i> it is calculated will differ.
+</p><p>Both finite and indefinitely defined lists can be folded over in a tree-like fashion:
+</p>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><pre class="de1">foldt            <span class="sy0">::</span> <span class="br0">&#40;</span>a <span class="sy0">-&gt;</span> a <span class="sy0">-&gt;</span> a<span class="br0">&#41;</span> <span class="sy0">-&gt;</span> a <span class="sy0">-&gt;</span> <span class="br0">&#91;</span>a<span class="br0">&#93;</span> <span class="sy0">-&gt;</span> a
+foldt f z <span class="br0">&#91;</span><span class="br0">&#93;</span>     <span class="sy0">=</span> z
+foldt f z <span class="br0">&#91;</span>x<span class="br0">&#93;</span>    <span class="sy0">=</span> x
+foldt f z xs     <span class="sy0">=</span> foldt f z <span class="br0">&#40;</span>pairs f xs<span class="br0">&#41;</span>
+&#160;
+foldi            <span class="sy0">::</span> <span class="br0">&#40;</span>a <span class="sy0">-&gt;</span> a <span class="sy0">-&gt;</span> a<span class="br0">&#41;</span> <span class="sy0">-&gt;</span> a <span class="sy0">-&gt;</span> <span class="br0">&#91;</span>a<span class="br0">&#93;</span> <span class="sy0">-&gt;</span> a
+foldi f z <span class="br0">&#91;</span><span class="br0">&#93;</span>     <span class="sy0">=</span> z
+foldi f z <span class="br0">&#40;</span>x:xs<span class="br0">&#41;</span> <span class="sy0">=</span> f x <span class="br0">&#40;</span>foldi f z <span class="br0">&#40;</span>pairs f xs<span class="br0">&#41;</span><span class="br0">&#41;</span>
+&#160;
+pairs            <span class="sy0">::</span> <span class="br0">&#40;</span>a <span class="sy0">-&gt;</span> a <span class="sy0">-&gt;</span> a<span class="br0">&#41;</span> <span class="sy0">-&gt;</span> <span class="br0">&#91;</span>a<span class="br0">&#93;</span> <span class="sy0">-&gt;</span> <span class="br0">&#91;</span>a<span class="br0">&#93;</span>
+pairs f <span class="br0">&#40;</span>x:y:t<span class="br0">&#41;</span>  <span class="sy0">=</span> f x y&#160;: pairs f t
+pairs f t        <span class="sy0">=</span> t</pre></div></div>
+<p>In the case of <code>foldi</code> function, to avoid its runaway evaluation on <i>indefinitely</i> defined lists the function <code>f</code> must <i>not always</i> demand its second argument's value, at least not all of it, and/or not immediately (example <a href="/haskellwiki/Fold#Examples" title="Fold">below</a>).
+</p>
+<h2> <span class="mw-headline" id="Folds_in_other_languages">4 Folds in other languages</span></h2>
+<p>In Scheme, right and left fold can be written as:
+</p>
+<pre> (define (foldr f z xs)
+   (if (null? xs)
+       z
+       (f (car xs) (foldr f z (cdr xs)))))
+</pre>
+<pre> (define (foldl f z xs)
+   (if (null? xs)
+       z
+       (foldl f (f z (car xs)) (cdr xs))))
+</pre>
+<p>The C++ Standard Template Library implements left fold as the function "accumulate" (in the header &lt;numeric&gt;).
+</p>
+<h2> <span class="mw-headline" id="List_folds_as_structural_transformations">5 List folds as structural transformations</span></h2>
+<p>One way in which it is perhaps natural to view folds is as a mechanism for replacing the structural components of a data structure with other functions and values in some regular way. In many languages, lists are built up from two primitives: either the list is the empty list, commonly called <i>nil</i>, or it is a list <i>cons</i>tructed by appending an element to the start of some other list, which we call a <i>cons</i>. In Haskell, the cons operation is written as a colon (:), and in scheme and other lisps, it is called cons. One can view a right fold as <i>replacing</i> the nil at the end of the list with a specific value, and each cons with a specific other function. Hence, one gets a diagram which looks something like this:
+</p><p><a href="/haskellwiki/File:Right-fold-transformation.png" class="image"><img alt="Right-fold-transformation.png" src="/wikiupload/3/3e/Right-fold-transformation.png" width="320" height="158" /></a>
+</p><p>In the case of a left fold, the structural transformation being performed is somewhat less natural, but is still quite regular:
+</p><p><a href="/haskellwiki/File:Left-fold-transformation.png" class="image"><img alt="Left-fold-transformation.png" src="/wikiupload/5/5a/Left-fold-transformation.png" width="320" height="158" /></a>
+</p>
+These pictures do a rather nice job of motivating the names <i>left</i> and <i>right</i> fold visually. It also makes obvious the fact that <code>foldr (:) []</code> is the identity function on lists, as replacing cons with cons and nil with nil will not change anything. The left fold diagram suggests an easy way to reverse a list, <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw3">foldl</span> <span class="br0">&#40;</span><span class="kw3">flip</span> <span class="br0">&#40;</span>:<span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#91;</span><span class="br0">&#93;</span></div></div></div>. Note that the parameters to cons must be flipped, because the element to add is now the right hand parameter of the combining function. Another easy result to see from this vantage-point is to write the higher-order <a href="/haskellwiki/index.php?title=W:Map_(higher-order_function)&amp;action=edit&amp;redlink=1" class="new" title="W:Map (higher-order function) (page does not exist)"> map function</a> in terms of foldr, by composing the function to act on the elements with cons, as:
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><pre class="de1"> <span class="kw3">map</span> f <span class="sy0">=</span> <span class="kw3">foldr</span> <span class="br0">&#40;</span><span class="br0">&#40;</span>:<span class="br0">&#41;</span> <span class="sy0">.</span> f<span class="br0">&#41;</span> <span class="br0">&#91;</span><span class="br0">&#93;</span></pre></div></div>
+<p>where the period (.) is an operator denoting <a href="/haskellwiki/Function_composition" title="Function composition">function composition</a>.
+</p><p>This way of looking at things provides a simple route to designing fold-like functions on other <a href="/haskellwiki/Algebraic_data_type" title="Algebraic data type">algebraic data structures</a>, like various sorts of trees. One writes a function which recursively replaces the constructors of the datatype with provided functions, and any constant values of the type with provided values. Such functions are generally referred to as <a href="/haskellwiki/Catamorphisms" title="Catamorphisms">Catamorphisms</a>.
+</p>
+<h2> <span class="mw-headline" id="Examples">6 Examples</span></h2>
+<p>Using a Haskell interpreter, we can show the structural transformation which fold functions perform by constructing a string as follows:
+</p>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><pre class="de1">Prelude<span class="sy0">&gt;</span> <span class="kw3">foldr</span> <span class="br0">&#40;</span>\x y <span class="sy0">-&gt;</span> <span class="kw3">concat</span> <span class="br0">&#91;</span><span class="st0">&quot;(&quot;</span><span class="sy0">,</span>x<span class="sy0">,</span><span class="st0">&quot;+&quot;</span><span class="sy0">,</span>y<span class="sy0">,</span><span class="st0">&quot;)&quot;</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="st0">&quot;0&quot;</span> <span class="br0">&#40;</span><span class="kw3">map</span> <span class="kw3">show</span> <span class="br0">&#91;</span>1<span class="sy0">..</span>13<span class="br0">&#93;</span><span class="br0">&#41;</span>
+<span class="st0">&quot;(1+(2+(3+(4+(5+(6+(7+(8+(9+(10+(11+(12+(13+0)))))))))))))&quot;</span>
+&#160;
+Prelude<span class="sy0">&gt;</span> <span class="kw3">foldl</span> <span class="br0">&#40;</span>\x y <span class="sy0">-&gt;</span> <span class="kw3">concat</span> <span class="br0">&#91;</span><span class="st0">&quot;(&quot;</span><span class="sy0">,</span>x<span class="sy0">,</span><span class="st0">&quot;+&quot;</span><span class="sy0">,</span>y<span class="sy0">,</span><span class="st0">&quot;)&quot;</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="st0">&quot;0&quot;</span> <span class="br0">&#40;</span><span class="kw3">map</span> <span class="kw3">show</span> <span class="br0">&#91;</span>1<span class="sy0">..</span>13<span class="br0">&#93;</span><span class="br0">&#41;</span>
+<span class="st0">&quot;(((((((((((((0+1)+2)+3)+4)+5)+6)+7)+8)+9)+10)+11)+12)+13)&quot;</span>
+&#160;
+Prelude<span class="sy0">&gt;</span> foldt <span class="br0">&#40;</span>\x y <span class="sy0">-&gt;</span> <span class="kw3">concat</span> <span class="br0">&#91;</span><span class="st0">&quot;(&quot;</span><span class="sy0">,</span>x<span class="sy0">,</span><span class="st0">&quot;+&quot;</span><span class="sy0">,</span>y<span class="sy0">,</span><span class="st0">&quot;)&quot;</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="st0">&quot;0&quot;</span> <span class="br0">&#40;</span><span class="kw3">map</span> <span class="kw3">show</span> <span class="br0">&#91;</span>1<span class="sy0">..</span>13<span class="br0">&#93;</span><span class="br0">&#41;</span>
+<span class="st0">&quot;((((1+2)+(3+4))+((5+6)+(7+8)))+(((9+10)+(11+12))+13))&quot;</span>
+&#160;
+Prelude<span class="sy0">&gt;</span> foldi <span class="br0">&#40;</span>\x y <span class="sy0">-&gt;</span> <span class="kw3">concat</span> <span class="br0">&#91;</span><span class="st0">&quot;(&quot;</span><span class="sy0">,</span>x<span class="sy0">,</span><span class="st0">&quot;+&quot;</span><span class="sy0">,</span>y<span class="sy0">,</span><span class="st0">&quot;)&quot;</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="st0">&quot;0&quot;</span> <span class="br0">&#40;</span><span class="kw3">map</span> <span class="kw3">show</span> <span class="br0">&#91;</span>1<span class="sy0">..</span>13<span class="br0">&#93;</span><span class="br0">&#41;</span>
+<span class="st0">&quot;(1+((2+3)+(((4+5)+(6+7))+((((8+9)+(10+11))+(12+13))+0))))&quot;</span></pre></div></div>
+<p>Infinite tree-like folding is demonstrated e.g. in primes production by unbounded <a href="/haskellwiki/Prime_numbers#Tree_merging" title="Prime numbers">sieve of Eratosthenes</a>:
+</p>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><pre class="de1">primes <span class="sy0">::</span> <span class="br0">&#40;</span><span class="kw4">Integral</span> a<span class="br0">&#41;</span> <span class="sy0">=&gt;</span> <span class="br0">&#91;</span>a<span class="br0">&#93;</span>
+primes <span class="sy0">=</span> 2&#160;: 3&#160;: <span class="br0">&#40;</span><span class="br0">&#91;</span>5<span class="sy0">,</span>7<span class="sy0">..</span><span class="br0">&#93;</span> `minus`
+                     foldi <span class="br0">&#40;</span>\<span class="br0">&#40;</span>x:xs<span class="br0">&#41;</span> <span class="sy0">-&gt;</span> <span class="br0">&#40;</span>x:<span class="br0">&#41;</span> <span class="sy0">.</span> union xs<span class="br0">&#41;</span> <span class="br0">&#91;</span><span class="br0">&#93;</span>
+                          <span class="br0">&#91;</span><span class="br0">&#91;</span>p<span class="sy0">*</span>p<span class="sy0">,</span> p<span class="sy0">*</span>p<span class="sy0">+</span>2<span class="sy0">*</span>p<span class="sy0">..</span><span class="br0">&#93;</span> <span class="sy0">|</span> p <span class="sy0">&lt;-</span> <span class="kw3">tail</span> primes<span class="br0">&#93;</span><span class="br0">&#41;</span></pre></div></div>
+<p>where the function <code>union</code> operates on ordered lists in a local manner to efficiently produce their union, and <code>minus</code> their set difference, defined at <a rel="nofollow" class="external text" href="http://hackage.haskell.org/packages/archive/data-ordlist/0.4.4/doc/html/Data-List-Ordered.html#v:minus"><code>Data.List.Ordered</code></a> package or here at <a href="/haskellwiki/Prime_numbers#Initial_definition" title="Prime numbers">Prime numbers</a> page.
+</p><p>For finite lists, e.g. merge sort could be easily defined using tree-like folding as
+</p>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><pre class="de1">mergesort    <span class="sy0">::</span> <span class="br0">&#40;</span><span class="kw4">Ord</span> a<span class="br0">&#41;</span> <span class="sy0">=&gt;</span> <span class="br0">&#91;</span>a<span class="br0">&#93;</span> <span class="sy0">-&gt;</span> <span class="br0">&#91;</span>a<span class="br0">&#93;</span>
+mergesort xs <span class="sy0">=</span> foldt merge <span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="br0">&#91;</span><span class="br0">&#91;</span>x<span class="br0">&#93;</span> <span class="sy0">|</span> x <span class="sy0">&lt;-</span> xs<span class="br0">&#93;</span></pre></div></div>
+<p>with the function <code>merge</code> a duplicates-preserving variant of <code>union</code>.<br />
+</p><p>Functions <code>head</code> and <code>last</code> could have been defined through folding as
+</p>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><pre class="de1"><span class="kw3">head</span> <span class="sy0">=</span> <span class="kw3">foldr</span> <span class="br0">&#40;</span>\a b<span class="sy0">-&gt;</span>a<span class="br0">&#41;</span> <span class="kw3">undefined</span> 
+<span class="kw3">last</span> <span class="sy0">=</span> <span class="kw3">foldl</span> <span class="br0">&#40;</span>\a b<span class="sy0">-&gt;</span>b<span class="br0">&#41;</span> <span class="kw3">undefined</span> </pre></div></div>
+<h2> <span class="mw-headline" id="See_also">7  See also </span></h2>
+<ul><li> <a href="/haskellwiki/Foldr_Foldl_Foldl%27" title="Foldr Foldl Foldl'">Foldr Foldl Foldl'</a>
+</li><li> <a href="/haskellwiki/Foldl_as_foldr" title="Foldl as foldr">Foldl as foldr</a>
+</li><li> <a href="/haskellwiki/Catamorphisms" title="Catamorphisms">Catamorphisms</a>
+</li><li> <a rel="nofollow" class="external text" href="http://en.wikipedia.org/wiki/Fold_%28higher-order_function%29">Wikipedia article on folds</a>
+</li></ul>
+<h2> <span class="mw-headline" id="External_links">8 External links</span></h2>
+<ul><li><a rel="nofollow" class="external text" href="http://www.cse.unsw.edu.au/~en1000/haskell/hof.html">"Lists, Map, Fold and Tail Recursion"</a>
+</li><li><a rel="nofollow" class="external text" href="http://www.cantab.net/users/antoni.diller/haskell/units/unit06.html">"Unit 6: The Higher-order fold Functions"</a>
+</li></ul>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 103/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:2178-0!*!0!1!en!2!* and timestamp 20140917104201 -->
+</div><div class="printfooter">
+Retrieved from "<a href="http://www.haskell.org/haskellwiki/index.php?title=Fold&amp;oldid=55866">http://www.haskell.org/haskellwiki/index.php?title=Fold&amp;oldid=55866</a>"</div>
+			<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/haskellwiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/haskellwiki/Category:Glossary" title="Category:Glossary">Glossary</a></li></ul></div></div>			<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div></div>
+		<div id="column-one">
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/haskellwiki/Haskell">Haskell</a></li>
+				<li id="n-portal"><a href="/haskellwiki/HaskellWiki:Community">Wiki community</a></li>
+				<li id="n-recentchanges"><a href="/haskellwiki/Special:RecentChanges">Recent changes</a></li>
+				<li id="n-randompage"><a href="/haskellwiki/Special:Random">Random page</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/haskellwiki/Special:WhatLinksHere/Fold">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/haskellwiki/Special:RecentChangesLinked/Fold">Related changes</a></li>
+<li id="t-specialpages"><a href="/haskellwiki/Special:SpecialPages">Special pages</a></li>
+				<li id="t-print"><a href="/haskellwiki/index.php?title=Fold&amp;printable=yes" rel="alternate">Printable version</a></li>				<li id="t-permalink"><a href="/haskellwiki/index.php?title=Fold&amp;oldid=55866">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="//www.mediawiki.org/"><img src="/wikistatic/skins//common/images/poweredby_mediawiki_88x31.png" height="31" width="88" alt="Powered by MediaWiki" /></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified on 7 May 2013, at 14:26.</li>
+					<li id="viewcount">This page has been accessed 154,363 times.</li>
+					<li id="copyright">Recent content is available under <a href="/haskellwiki/HaskellWiki:Copyrights" title="HaskellWiki:Copyrights">a simple permissive license</a>.</li>
+					<li id="privacy"><a href="/haskellwiki/HaskellWiki:Privacy_policy" title="HaskellWiki:Privacy policy">Privacy policy</a></li>
+					<li id="about"><a href="/haskellwiki/HaskellWiki:About" title="HaskellWiki:About">About HaskellWiki</a></li>
+					<li id="disclaimer"><a href="/haskellwiki/HaskellWiki:General_disclaimer" title="HaskellWiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+</div>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.user","mediawiki.page.ready"], null, true);
+}</script>
+<script src="http://www.haskell.org/haskellwiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=scripts&amp;skin=hawiki&amp;*"></script>
+<!-- Served in 0.221 secs. --><script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15375175-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body></html>

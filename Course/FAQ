@@ -1,0 +1,693 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="generator" content="MediaWiki 1.19.5-1+deb7u1" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/haskellwiki/opensearch_desc.php" title="HaskellWiki (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="http://www.haskell.org/haskellwiki/api.php?action=rsd" />
+<link rel="copyright" href="/haskellwiki/HaskellWiki:Copyrights" />
+<link rel="alternate" type="application/atom+xml" title="HaskellWiki Atom feed" href="/haskellwiki/index.php?title=Special:RecentChanges&amp;feed=atom" />		<title>FAQ - HaskellWiki</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/wikistatic/skins//common/shared.css?303";
+			@import "/wikistatic/skins//hawiki/main.css?303";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="/wikistatic/skins//common/commonPrint.css?303" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/wikistatic/skins//hawiki/IE50Fixes.css?303";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/wikistatic/skins//hawiki/IE55Fixes.css?303";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/wikistatic/skins//hawiki/IE60Fixes.css?303";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/wikistatic/skins//hawiki/IE70Fixes.css?303";</style><![endif]-->
+		<!--[if lte IE 7]><script type="text/javascript" src="/wikistatic/skins//hawiki/IEFixes.js?303"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+                                                <script type="text/javascript">
+                        var isMSIE55 = (window.showModalDialog && window.clipboardData && window.createPopup); /*alert("test: " + isMSIE55);*/</script>
+
+		<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"FAQ","wgTitle":"FAQ","wgCurRevisionId":58787,"wgArticleId":6656,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["FAQ"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgRelevantPageName":"FAQ","wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script>
+		<script type="text/javascript" src="/wikistatic/skins//common/wikibits.js?303"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+<script src="http://www.haskell.org/haskellwiki/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=hawiki&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"FAQ","wgTitle":"FAQ","wgCurRevisionId":58787,"wgArticleId":6656,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["FAQ"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgRelevantPageName":"FAQ","wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":1,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"highlightbroken":1,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":1,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":1,"showtoolbar":1,"skin":"hawiki","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion":0,
+"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"variant":"en","language":"en","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false});;},{},{});mw.loader.implement("user.tokens",function($){mw.user.tokens.set({"editToken":"+\\","watchToken":false});;},{},{});
+
+/* cache key: wikidb:resourceloader:filter:minify-js:7:befcdb5e3b24ff89f900613de9ed4ea3 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax"]);
+}</script><style type="text/css">/*<![CDATA[*/
+.source-haskell {line-height: normal;}
+.source-haskell li, .source-haskell pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for haskell
+ * CSS class: source-haskell, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.haskell.source-haskell .de1, .haskell.source-haskell .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.haskell.source-haskell  {font-family:monospace;}
+.haskell.source-haskell .imp {font-weight: bold; color: red;}
+.haskell.source-haskell li, .haskell.source-haskell .li1 {font-weight: normal; vertical-align:top;}
+.haskell.source-haskell .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.haskell.source-haskell .li2 {font-weight: bold; vertical-align:top;}
+.haskell.source-haskell .kw1 {color: #06c; font-weight: bold;}
+.haskell.source-haskell .kw2 {color: #06c; font-weight: bold;}
+.haskell.source-haskell .kw3 {font-weight: bold;}
+.haskell.source-haskell .kw4 {color: #cccc00; font-weight: bold;}
+.haskell.source-haskell .kw5 {color: maroon;}
+.haskell.source-haskell .co1 {color: #5d478b; font-style: italic;}
+.haskell.source-haskell .co2 {color: #339933; font-weight: bold;}
+.haskell.source-haskell .coMULTI {color: #5d478b; font-style: italic;}
+.haskell.source-haskell .es0 {background-color: #3cb371; font-weight: bold;}
+.haskell.source-haskell .br0 {color: green;}
+.haskell.source-haskell .sy0 {color: #339933; font-weight: bold;}
+.haskell.source-haskell .st0 {background-color: #3cb371;}
+.haskell.source-haskell .nu0 {color: red;}
+.haskell.source-haskell .me1 {color: #060;}
+.haskell.source-haskell .ln-xtra, .haskell.source-haskell li.ln-xtra, .haskell.source-haskell div.ln-xtra {background-color: #ffc;}
+.haskell.source-haskell span.xtra { display:block; }
+
+/*]]>*/
+</style>	</head>
+<body class="mediawiki ltr ns-0 ns-subject page-FAQ skin-hawiki">
+   <div id="topbar" class="noprint">
+	<div class="portlet noprint" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul><li><a class="homebutton" href="/haskellwiki/Haskell">Home</a></li>
+				<li id="pt-login"><a href="/haskellwiki/index.php?title=Special:UserLogin&amp;returnto=FAQ">Log in</a></li>
+			</ul>
+		</div>
+	</div>
+        	  <div id="p-search">
+	    <div id="searchBody" class="pBody">
+	       <form action="/haskellwiki/index.php" id="searchform"><div>
+	          <input type='hidden' name="title" value="Special:Search"/>
+	          <input id="searchInput" name="search" type="text" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" />
+
+	         </div></form>
+	    </div>
+	  </div>
+   </div>
+	<div id="globalWrapper">
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/wikistatic/haskellwiki_logo.png);" href="/haskellwiki/Haskell"></a>
+	</div>
+	<div id="column-content">
+        <div id="notice-area" class="noprint">
+        <!-- ?php $this->data['sitenotice'] = 'This is a test instance.  Do not edit, your changes will be lost.'; ? -->
+			        </div>
+        <div id="content-wrapper">
+	<div id="p-cactions" class="portlet noprint">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+	
+				 <li id="ca-nstab-main" class="selected"><a href="/haskellwiki/FAQ">Page</a></li>
+				 <li id="ca-talk" class="new"><a href="/haskellwiki/index.php?title=Talk:FAQ&amp;action=edit&amp;redlink=1">Discussion</a></li>
+				 <li id="ca-viewsource"><a href="/haskellwiki/index.php?title=FAQ&amp;action=edit">View source</a></li>
+				 <li id="ca-history"><a href="/haskellwiki/index.php?title=FAQ&amp;action=history">History</a></li>			</ul>
+		</div>
+	</div>
+                        <div id="content">
+		<a name="top" id="top"></a>
+                        <h1 id="firstHeading" class="firstHeading">FAQ</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From HaskellWiki</h3>
+			<div id="contentSub"></div>
+			<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>This FAQ is based on actual frequently-asked questions from <a href="/haskellwiki/IRC_channel" title="IRC channel"><tt>#haskell</tt> IRC</a>. The goal is simply to collect and edit some common answers. Beginner questions are still welcome on IRC, as always.
+</p><p>This is a wiki, so please edit the text with any improvements you have. And feel free to add new questions, if they are frequently asked.
+</p>
+<h2> <span class="mw-headline" id="See_also">1  See also </span></h2>
+<ul><li> <a href="/haskellwiki/Category:FAQ" title="Category:FAQ">Other FAQs</a>
+</li><li> The <a href="/haskellwiki/Introduction" title="Introduction">introduction to Haskell</a>, and the FAQ at the end of that document.
+</li></ul>
+<table id="toc" class="toc"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#See_also"><span class="tocnumber">1</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#The_real_world"><span class="tocnumber">2</span> <span class="toctext">The real world</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Should_I_learn_Haskell.3F"><span class="tocnumber">2.1</span> <span class="toctext">Should I learn Haskell?</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Is_Haskell_hard_to_learn.3F"><span class="tocnumber">2.2</span> <span class="toctext">Is Haskell hard to learn?</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#How_can_I_get_started_with_Haskell_right_now.3F"><span class="tocnumber">2.3</span> <span class="toctext">How can I get started with Haskell <i>right now</i>?</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#What_should_I_read_for_learning_Haskell.3F"><span class="tocnumber">2.4</span> <span class="toctext">What should I read for learning Haskell?</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#How_can_I_get_help_with_learning_Haskell.3F"><span class="tocnumber">2.5</span> <span class="toctext">How can I get help with learning Haskell?</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Will_Haskell_get_me_a_job.3F"><span class="tocnumber">2.6</span> <span class="toctext">Will Haskell get me a job?</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Is_Haskell_similar_to_Language_X.3F"><span class="tocnumber">2.7</span> <span class="toctext">Is Haskell similar to Language X?</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#What.27s_the_relationship_between_Haskell_and_GHC.3F"><span class="tocnumber">2.8</span> <span class="toctext">What's the relationship between Haskell and GHC?</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#What_is_the_Haskell_Platform.3F"><span class="tocnumber">2.9</span> <span class="toctext">What is the Haskell Platform?</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#What_is_Haskell_Prime_.28Haskell.27.29.3F"><span class="tocnumber">2.10</span> <span class="toctext">What is Haskell Prime (Haskell')?</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#My_textbook_uses_Haskell_98._Is_it_very_different_from_Haskell_2010.3F"><span class="tocnumber">2.11</span> <span class="toctext">My textbook uses Haskell 98. Is it very different from Haskell 2010?</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#How_do_I_get_libraries_for_Haskell.3F"><span class="tocnumber">2.12</span> <span class="toctext">How do I get libraries for Haskell?</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#Is_Haskell_compiled.3F"><span class="tocnumber">2.13</span> <span class="toctext">Is Haskell compiled?</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#Does_Haskell_have_an_interpreter.3F"><span class="tocnumber">2.14</span> <span class="toctext">Does Haskell have an interpreter?</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-17"><a href="#Paradigms"><span class="tocnumber">3</span> <span class="toctext">Paradigms</span></a>
+<ul>
+<li class="toclevel-2 tocsection-18"><a href="#Is_learning_Haskell_the_best_way_to_learn_functional_programming.3F"><span class="tocnumber">3.1</span> <span class="toctext">Is learning Haskell the best way to learn functional programming?</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="#I_heard_Haskell_is_pure_functional._Does_that_mean_I_can.27t_do_imperative_.2F_OOP_.2F_aspect-oriented_.2F_logic_programming_in_Haskell.3F"><span class="tocnumber">3.2</span> <span class="toctext">I heard Haskell is pure functional. Does that mean I can't do imperative / OOP / aspect-oriented / logic programming in Haskell?</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="#I_heard_Haskell_is_pure_functional._Does_that_mean_it_can.27t_do_IO.3F"><span class="tocnumber">3.3</span> <span class="toctext">I heard Haskell is pure functional. Does that mean it can't do IO?</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="#I_heard_Haskell_is_pure_functional._Does_that_mean_it_doesn.27t_have_mutable_state.3F"><span class="tocnumber">3.4</span> <span class="toctext">I heard Haskell is pure functional. Does that mean it doesn't have mutable state?</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="#Wait.2C_is_Haskell_imperative_or_is_it_functional.3F"><span class="tocnumber">3.5</span> <span class="toctext">Wait, is Haskell imperative or is it functional?</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-23"><a href="#Math"><span class="tocnumber">4</span> <span class="toctext">Math</span></a>
+<ul>
+<li class="toclevel-2 tocsection-24"><a href="#Was_Haskell_designed_by_mathematicians.3F"><span class="tocnumber">4.1</span> <span class="toctext">Was Haskell designed by mathematicians?</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="#Do_I_need_to_know_advanced_math_in_order_to_use_Haskell.3F"><span class="tocnumber">4.2</span> <span class="toctext">Do I need to know advanced math in order to use Haskell?</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-26"><a href="#Types"><span class="tocnumber">5</span> <span class="toctext">Types</span></a>
+<ul>
+<li class="toclevel-2 tocsection-27"><a href="#Doesn.27t_a_static_type_system_just_make_it_harder_to_write_programs.3F"><span class="tocnumber">5.1</span> <span class="toctext">Doesn't a static type system just make it harder to write programs?</span></a></li>
+<li class="toclevel-2 tocsection-28"><a href="#How_do_I_make_a_list_with_elements_of_different_types.3F"><span class="tocnumber">5.2</span> <span class="toctext">How do I make a list with elements of different types?</span></a></li>
+<li class="toclevel-2 tocsection-29"><a href="#No_really.2C_how_do_I_make_a_list_of_elements_of_different_types.3F"><span class="tocnumber">5.3</span> <span class="toctext">No really, how do I make a list of elements of different types?</span></a></li>
+<li class="toclevel-2 tocsection-30"><a href="#I.27m_making_an_RPG._Should_I_define_a_type_for_each_kind_of_monster.2C_and_a_type_class_for_them.3F"><span class="tocnumber">5.4</span> <span class="toctext">I'm making an RPG. Should I define a type for each kind of monster, and a type class for them?</span></a></li>
+<li class="toclevel-2 tocsection-31"><a href="#What.27s_the_difference_between_Integer_and_Int.3F"><span class="tocnumber">5.5</span> <span class="toctext">What's the difference between Integer and Int?</span></a></li>
+<li class="toclevel-2 tocsection-32"><a href="#How_do_I_convert_type_A_to_type_B.3F"><span class="tocnumber">5.6</span> <span class="toctext">How do I convert type A to type B?</span></a></li>
+<li class="toclevel-2 tocsection-33"><a href="#Does_Haskell_have_type_casts.3F"><span class="tocnumber">5.7</span> <span class="toctext">Does Haskell have type casts?</span></a></li>
+<li class="toclevel-2 tocsection-34"><a href="#How_do_I_convert_from_one_numeric_type_to_another.3F"><span class="tocnumber">5.8</span> <span class="toctext">How do I convert from one numeric type to another?</span></a></li>
+<li class="toclevel-2 tocsection-35"><a href="#How_do_I_convert_Maybe_Int_to_Int.3F"><span class="tocnumber">5.9</span> <span class="toctext">How do I convert Maybe Int to Int?</span></a></li>
+<li class="toclevel-2 tocsection-36"><a href="#How_do_I_convert_IO_Int_to_Int.3F"><span class="tocnumber">5.10</span> <span class="toctext">How do I convert IO Int to Int?</span></a></li>
+<li class="toclevel-2 tocsection-37"><a href="#How_do_I_convert_between_String_.28or_Text.29_and_ByteString.3F"><span class="tocnumber">5.11</span> <span class="toctext">How do I convert between String (or Text) and ByteString?</span></a></li>
+<li class="toclevel-2 tocsection-38"><a href="#How_do_I_catch_the_error_thrown_by_read_on_a_parse_failure.3F"><span class="tocnumber">5.12</span> <span class="toctext">How do I catch the error thrown by read on a parse failure?</span></a></li>
+<li class="toclevel-2 tocsection-39"><a href="#What.27s_the_difference_between_type.2C_data.2C_and_newtype.3F"><span class="tocnumber">5.13</span> <span class="toctext">What's the difference between type, data, and newtype?</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-40"><a href="#Making_it_work"><span class="tocnumber">6</span> <span class="toctext">Making it work</span></a>
+<ul>
+<li class="toclevel-2 tocsection-41"><a href="#How_can_I_find_type_errors.3F"><span class="tocnumber">6.1</span> <span class="toctext">How can I find type errors?</span></a></li>
+<li class="toclevel-2 tocsection-42"><a href="#How_can_I_find_bugs_that_occur_at_runtime.3F"><span class="tocnumber">6.2</span> <span class="toctext">How can I find bugs that occur at runtime?</span></a></li>
+<li class="toclevel-2 tocsection-43"><a href="#Why_do_I_get_an_.22undefined_symbol.22_linker_error_when_compiling.3F"><span class="tocnumber">6.3</span> <span class="toctext">Why do I get an &quot;undefined symbol&quot; linker error when compiling?</span></a></li>
+<li class="toclevel-2 tocsection-44"><a href="#How_can_I_get_a_stack_backtrace_when_my_program_throws_an_exception.3F"><span class="tocnumber">6.4</span> <span class="toctext">How can I get a stack backtrace when my program throws an exception?</span></a></li>
+<li class="toclevel-2 tocsection-45"><a href="#How_can_I_do_automated_unit_testing.3F"><span class="tocnumber">6.5</span> <span class="toctext">How can I do automated unit testing?</span></a></li>
+<li class="toclevel-2 tocsection-46"><a href="#How_can_I_find_and_fix_performance_problems.3F"><span class="tocnumber">6.6</span> <span class="toctext">How can I find and fix performance problems?</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-47"><a href="#Modules"><span class="tocnumber">7</span> <span class="toctext">Modules</span></a>
+<ul>
+<li class="toclevel-2 tocsection-48"><a href="#How_do_I_deal_with_name_clashes_between_modules.3F"><span class="tocnumber">7.1</span> <span class="toctext">How do I deal with name clashes between modules?</span></a></li>
+<li class="toclevel-2 tocsection-49"><a href="#How_do_I_control_the_Prelude_import.3F"><span class="tocnumber">7.2</span> <span class="toctext">How do I control the Prelude import?</span></a></li>
+<li class="toclevel-2 tocsection-50"><a href="#How_do_I_qualify_the_name_of_an_infix_operator.3F"><span class="tocnumber">7.3</span> <span class="toctext">How do I qualify the name of an infix operator?</span></a></li>
+<li class="toclevel-2 tocsection-51"><a href="#How_do_I_mention_an_infix_operator_in_an_export_.2F_import_.2F_hiding_list.3F"><span class="tocnumber">7.4</span> <span class="toctext">How do I mention an infix operator in an export / import / hiding list?</span></a></li>
+<li class="toclevel-2 tocsection-52"><a href="#I_listed_a_data_type_in_my_import_list_but_its_data_constructors_aren.27t_in_scope._How_do_I_fix_it.3F"><span class="tocnumber">7.5</span> <span class="toctext">I listed a data type in my import list but its data constructors aren't in scope. How do I fix it?</span></a></li>
+<li class="toclevel-2 tocsection-53"><a href="#How_can_I_import_and_re-export_a_whole_module.3F"><span class="tocnumber">7.6</span> <span class="toctext">How can I import and re-export a whole module?</span></a></li>
+<li class="toclevel-2 tocsection-54"><a href="#How_can_I_export_another_module_and_everything_defined_in_this_module.3F"><span class="tocnumber">7.7</span> <span class="toctext">How can I export another module <i>and</i> everything defined in this module?</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-55"><a href="#The_M-word"><span class="tocnumber">8</span> <span class="toctext">The M-word</span></a>
+<ul>
+<li class="toclevel-2 tocsection-56"><a href="#I_heard_Haskell_is_about_monads._I_heard_that_the_core_feature_of_Haskell_is_monads._Is_that_true.3F"><span class="tocnumber">8.1</span> <span class="toctext">I heard Haskell is about monads. I heard that the core feature of Haskell is monads. Is that true?</span></a></li>
+<li class="toclevel-2 tocsection-57"><a href="#Do_I_need_to_understand_monads_in_order_to_do_IO.3F"><span class="tocnumber">8.2</span> <span class="toctext">Do I need to understand monads in order to do IO?</span></a></li>
+<li class="toclevel-2 tocsection-58"><a href="#What_should_I_know_before_trying_to_understand_monads.3F"><span class="tocnumber">8.3</span> <span class="toctext">What should I know before trying to understand monads?</span></a></li>
+<li class="toclevel-2 tocsection-59"><a href="#Aren.27t_monads_just_a_hack_for_handling_impure_things_in_a_pure_language.3F"><span class="tocnumber">8.4</span> <span class="toctext">Aren't monads just a hack for handling impure things in a pure language?</span></a></li>
+<li class="toclevel-2 tocsection-60"><a href="#I_heard_monads_are_like_burritos_or_space_suits_full_of_nuclear_waste._Is_that_true.3F"><span class="tocnumber">8.5</span> <span class="toctext">I heard monads are like burritos or space suits full of nuclear waste. Is that true?</span></a></li>
+<li class="toclevel-2 tocsection-61"><a href="#I_can_use_monads_but_I_feel_like_I_still_don.27t_.22get.22_them._What_am_I_missing.3F"><span class="tocnumber">8.6</span> <span class="toctext">I can use monads but I feel like I still don't &quot;get&quot; them. What am I missing?</span></a></li>
+<li class="toclevel-2 tocsection-62"><a href="#What.27s_the_difference_between_State_s_and_ST_s_monads.3F"><span class="tocnumber">8.7</span> <span class="toctext">What's the difference between State s and ST s monads?</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-63"><a href="#Concurrency_and_parallelism"><span class="tocnumber">9</span> <span class="toctext">Concurrency and parallelism</span></a>
+<ul>
+<li class="toclevel-2 tocsection-64"><a href="#How_can_I_do_X_without_resorting_to_threads.3F"><span class="tocnumber">9.1</span> <span class="toctext">How can I do X without resorting to threads?</span></a></li>
+<li class="toclevel-2 tocsection-65"><a href="#What.27s_the_difference_between_concurrency_and_parallelism.3F"><span class="tocnumber">9.2</span> <span class="toctext">What's the difference between concurrency and parallelism?</span></a></li>
+<li class="toclevel-2 tocsection-66"><a href="#How_do_par.2C_pseq.2C_and_seq_relate.3F"><span class="tocnumber">9.3</span> <span class="toctext">How do par, pseq, and seq relate?</span></a></li>
+<li class="toclevel-2 tocsection-67"><a href="#How_do_I_do_event-based_IO_in_GHC_Haskell.3F_Should_I_call_select.2C_epoll.2C_etc.3F"><span class="tocnumber">9.4</span> <span class="toctext">How do I do event-based IO in GHC Haskell?  Should I call select, epoll, etc?</span></a></li>
+<li class="toclevel-2 tocsection-68"><a href="#What.27s_the_difference_between_forkIO_and_forkOS.3F"><span class="tocnumber">9.5</span> <span class="toctext">What's the difference between forkIO and forkOS?</span></a></li>
+<li class="toclevel-2 tocsection-69"><a href="#How_can_I_wait_for_a_thread_to_finish_and_produce_a_result.3F"><span class="tocnumber">9.6</span> <span class="toctext">How can I wait for a thread to finish and produce a result?</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-70"><a href="#IRC"><span class="tocnumber">10</span> <span class="toctext">IRC</span></a>
+<ul>
+<li class="toclevel-2 tocsection-71"><a href="#What_does_lambdabot.27s_.22info.22_command_do.3F"><span class="tocnumber">10.1</span> <span class="toctext">What does lambdabot's "info" command do?</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table>
+<p><br />
+</p>
+<h1> <span class="mw-headline" id="The_real_world">2  The real world </span></h1>
+<h2> <span class="mw-headline" id="Should_I_learn_Haskell.3F">2.1  Should I learn Haskell? </span></h2>
+<p>That depends on your goals. In general, Haskellers will tell you that you should learn Haskell.&#160;:)
+</p><p>Learning Haskell is fun. It will expand your mind and make you a better programmer in other languages. These are the immediate benefits.
+</p><p>Haskell is also a great tool for solving real-world problems, but it can take many months of study to get to that point.
+</p>
+<h2> <span class="mw-headline" id="Is_Haskell_hard_to_learn.3F">2.2  Is Haskell hard to learn? </span></h2>
+<p>Any competent programmer can learn Haskell, but it will take more time and motivation than you may expect.
+</p><p>Haskell requires learning a new way to think, not just new syntax for old concepts. This can be incredibly frustrating, as simple tasks seem impossibly difficult.
+</p><p>Those with no prior programming experience may actually have an easier time learning Haskell, because they have less to un-learn.
+</p>
+<h2> <span class="mw-headline" id="How_can_I_get_started_with_Haskell_right_now.3F">2.3  How can I get started with Haskell <i>right now</i>? </span></h2>
+<p>Check out <a rel="nofollow" class="external text" href="http://tryhaskell.org/">Try Haskell</a>.
+</p><p>Also: <a rel="nofollow" class="external text" href="https://www.fpcomplete.com/business/fp-haskell-center/">FP Complete's free online IDE</a>
+</p><p><br />
+</p>
+<h2> <span class="mw-headline" id="What_should_I_read_for_learning_Haskell.3F">2.4  What should I read for learning Haskell? </span></h2>
+<p>The most popular resources are <a rel="nofollow" class="external text" href="http://learnyouahaskell.com/"><i>Learn You a Haskell</i></a> and <a rel="nofollow" class="external text" href="http://book.realworldhaskell.org/"><i>Real World Haskell</i></a>. Each is available online for free, or can be purchased in hardcopy.
+</p><p>Many other <a href="/haskellwiki/Tutorials" title="Tutorials">tutorials</a>, <a href="/haskellwiki/Books" title="Books">books</a>, and <a href="/haskellwiki/Learning_Haskell" title="Learning Haskell">other resources</a> are available.
+</p><p>There's also the <a rel="nofollow" class="external text" href="https://www.fpcomplete.com/school">School of Haskell</a> which has a set of free online tutorials with runnable examples.
+</p>
+<h2> <span class="mw-headline" id="How_can_I_get_help_with_learning_Haskell.3F">2.5  How can I get help with learning Haskell? </span></h2>
+<p>Your options include:
+</p>
+<ul><li> <a href="/haskellwiki/IRC_channel" title="IRC channel"><tt>#haskell</tt> on Freenode IRC</a>
+</li><li> <a rel="nofollow" class="external text" href="http://stackoverflow.com/questions/tagged/haskell">Stack Overflow</a>
+</li><li> The <a rel="nofollow" class="external text" href="http://www.haskell.org/mailman/listinfo/haskell-cafe">Haskell-Cafe</a> mailing list
+</li></ul>
+<h2> <span class="mw-headline" id="Will_Haskell_get_me_a_job.3F">2.6  Will Haskell get me a job? </span></h2>
+<p>There are plenty of <a href="/haskellwiki/Haskell_in_industry" title="Haskell in industry">companies using Haskell</a>, but it's still a tiny number compared to the software industry as a whole.
+</p><p>There are also many companies which do not use Haskell, but prefer to hire people who know Haskell. It indicates that you learned something hard and obscure just for fun, which employers take as a sign of intelligence.
+</p>
+<h2> <span class="mw-headline" id="Is_Haskell_similar_to_Language_X.3F">2.7  Is Haskell similar to Language X? </span></h2>
+<p>Probably not. It's best if you approach Haskell with a clean slate. Most analogies to another language will break down somewhere, often in a subtle and misleading way. If you first learn the Haskell concepts for what they are, you can then draw useful connections to other languages.
+</p>
+<h2> <span class="mw-headline" id="What.27s_the_relationship_between_Haskell_and_GHC.3F">2.8  What's the relationship between Haskell and GHC? </span></h2>
+<p>Haskell is not a piece of software; it is a specification for a standardized programming language. The <a href="/haskellwiki/Language_and_library_specification" title="Language and library specification">latest version of the spec</a> is the Haskell 2010 Report.
+</p><p><a rel="nofollow" class="external text" href="http://www.haskell.org/ghc/">GHC</a> is the Glorious Glasgow Haskell Compiler. It is by far the most popular and &quot;production-ready&quot; implementation of the standard Haskell language. It also implements many <a rel="nofollow" class="external text" href="http://www.haskell.org/ghc/docs/latest/html/users_guide/ghc-language-features.html">extension</a> features that go above and beyond standard Haskell. Many programs use these features and so aren't &quot;written in Haskell&quot; in the strictest sense.
+</p><p>You can use the term &quot;Haskell&quot; to refer to the standard language, and &quot;GHC Haskell&quot; when including GHC extensions.
+</p><p>Besides GHC, several other <a href="/haskellwiki/Implementations" title="Implementations">implementations</a> of Haskell are available. Each one provides its own extensions, some of which don't exist in GHC.
+</p>
+<h2> <span class="mw-headline" id="What_is_the_Haskell_Platform.3F">2.9  What is the Haskell Platform? </span></h2>
+<p>The <a rel="nofollow" class="external text" href="http://hackage.haskell.org/platform/">Haskell Platform</a> is a copy of GHC bundled with a &quot;blessed&quot; set of useful libraries. It is the easiest way to get started with Haskell. It's not essential to start with the Platform, because you can install the same libraries as needed.
+</p>
+<h2> <span class="mw-headline" id="What_is_Haskell_Prime_.28Haskell.27.29.3F">2.10  What is Haskell Prime (Haskell')? </span></h2>
+<p><a rel="nofollow" class="external text" href="http://hackage.haskell.org/trac/haskell-prime/">Haskell Prime</a> is a process which produces new versions of the Haskell language spec. It does not refer to a particular present or future version of Haskell.
+</p>
+<h2> <span class="mw-headline" id="My_textbook_uses_Haskell_98._Is_it_very_different_from_Haskell_2010.3F">2.11  My textbook uses Haskell 98. Is it very different from Haskell 2010? </span></h2>
+<p>No. Haskell 2010 is a <a rel="nofollow" class="external text" href="http://www.haskell.org/pipermail/haskell/2009-November/021750.html">very conservative change</a> to Haskell 98. It fixes small syntactic flaws, and standardizes several well-behaved extensions which GHC has supported for years.
+</p><p>The standardization process is very slow because standardizing a flawed language can be a costly mistake. Extensions are accepted only once they are considered mature and well-understood.
+</p>
+<h2> <span class="mw-headline" id="How_do_I_get_libraries_for_Haskell.3F">2.12  How do I get libraries for Haskell? </span></h2>
+<p>You can find libraries on <a rel="nofollow" class="external text" href="http://hackage.haskell.org/packages/archive/pkg-list.html">Hackage</a>, and install them with <a href="/haskellwiki/Cabal-Install" title="Cabal-Install"><tt>cabal-install</tt></a>.
+</p>
+<h2> <span class="mw-headline" id="Is_Haskell_compiled.3F">2.13  Is Haskell compiled? </span></h2>
+<p>Usually. GHC, the most popular Haskell implementation, has an optimizing ahead-of-time native-code compiler, as well as a bytecode compiler and interpreter for interactive use.
+</p><p>Haskell itself is not a &quot;compiled language&quot; because nothing in the Haskell spec requires implementations to be compilers.
+</p>
+<h2> <span class="mw-headline" id="Does_Haskell_have_an_interpreter.3F">2.14  Does Haskell have an interpreter? </span></h2>
+<p>Yes, but maybe you instead mean &quot;Is there a program where I can type Haskell code and see it run immediately?&quot;. GHCi provides such a &quot;read-evaluate-print loop&quot;.
+</p>
+<h1> <span class="mw-headline" id="Paradigms">3  Paradigms </span></h1>
+<h2> <span class="mw-headline" id="Is_learning_Haskell_the_best_way_to_learn_functional_programming.3F">3.1  Is learning Haskell the best way to learn functional programming? </span></h2>
+<p>Not necessarily! Haskell is not a <i>typical</i> functional language. It can be overwhelming to learn the basic concepts of functional programming alongside static types, algebraic data, laziness, type classes, first-class IO, etc. For an introduction to FP by itself you might want to learn Scheme, or play with the FP features in your current favorite language.
+</p><p>That said, many people choose Haskell as an introduction to FP and have success with that approach. Haskell has an extremely active community of people teaching, doing research, writing libraries, etc. Haskell is where interesting things happen in the FP space, so it's an exciting place to jump in.
+</p>
+<h2> <span class="mw-headline" id="I_heard_Haskell_is_pure_functional._Does_that_mean_I_can.27t_do_imperative_.2F_OOP_.2F_aspect-oriented_.2F_logic_programming_in_Haskell.3F">3.2  I heard Haskell is pure functional. Does that mean I can't do imperative / OOP / aspect-oriented / logic programming in Haskell? </span></h2>
+<p>No, &quot;pure functional&quot; has a specific technical meaning. It doesn't mean that functional is the only supported paradigm.
+</p><p>Paradigms describe the techniques used in a particular program. For example, the Linux kernel is written in C, with pervasive use of functional, object-oriented, and aspect-oriented programming. The most we can say about a <i>language</i> is that it encourages or discourages a particular paradigm. Haskell is very flexible and can comfortably accommodate most paradigms, even when there is no built-in support.
+</p>
+<h2> <span class="mw-headline" id="I_heard_Haskell_is_pure_functional._Does_that_mean_it_can.27t_do_IO.3F">3.3  I heard Haskell is pure functional. Does that mean it can't do IO? </span></h2>
+<p>No; <a href="/haskellwiki/Introduction_to_IO" title="Introduction to IO">IO in Haskell</a> is straightforward.
+</p>
+<h2> <span class="mw-headline" id="I_heard_Haskell_is_pure_functional._Does_that_mean_it_doesn.27t_have_mutable_state.3F">3.4  I heard Haskell is pure functional. Does that mean it doesn't have mutable state? </span></h2>
+<p>No; see <a rel="nofollow" class="external text" href="http://www.haskell.org/ghc/docs/latest/html/libraries/base/Data-IORef.html"><tt>IORef</tt></a> for a simple example. A more sophisticated example is <a rel="nofollow" class="external text" href="http://book.realworldhaskell.org/read/software-transactional-memory.html">software transactional memory</a>, which provides concurrent state more sophisticated than you'll find in most other imperative languages.
+</p>
+<h2> <span class="mw-headline" id="Wait.2C_is_Haskell_imperative_or_is_it_functional.3F">3.5  Wait, is Haskell imperative or is it functional? </span></h2>
+<p>Both. In Haskell, functions are first class, and so are imperative actions.
+</p><p>There is no reason to consider &quot;imperative language&quot; and &quot;functional language&quot; as mutually exclusive. It's only a historical accident that a few of the most popular imperative languages are unusually bad at functional programming. Functional imperative programming is extremely powerful and is supported by many languages.
+</p>
+<h1> <span class="mw-headline" id="Math">4  Math </span></h1>
+<h2> <span class="mw-headline" id="Was_Haskell_designed_by_mathematicians.3F">4.1  Was Haskell designed by mathematicians? </span></h2>
+<p>Haskell was designed by people studying programming language design. Perhaps programmers would consider them to be mathematicians, while mathematicians would consider them to be programmers.
+</p><p>Designing a programming language is a hard thing to do. There are many non-obvious tradeoffs, and many lessons to be learned from past failures and successes. Yet many of today's most popular languages were designed by people who hadn't done their homework.
+</p><p>Haskell was designed by people who knew what they were doing. It's not perfect, but the contrast to an amateur's design is striking.
+</p>
+<h2> <span class="mw-headline" id="Do_I_need_to_know_advanced_math_in_order_to_use_Haskell.3F">4.2  Do I need to know advanced math in order to use Haskell? </span></h2>
+<p>No. Certain concepts in Haskell are named after concepts in advanced math. But other languages also appropriate math terminology: consider &quot;<a rel="nofollow" class="external text" href="http://en.wikipedia.org/wiki/Singleton_pattern">singleton</a>&quot;, not to mention &quot;function&quot; and &quot;variable&quot;. The way these programming concepts relate to actual mathematics is not necessarily important or relevant.
+</p><p>In addition, some people write articles about advanced math, using Haskell syntax as their notation. These articles are interesting, but the connection to everyday programming work is usually remote.
+</p><p>Knowing advanced math will enrich your experience using Haskell, but is by no means a prerequisite.
+</p>
+<h1> <span class="mw-headline" id="Types">5  Types </span></h1>
+<h2> <span class="mw-headline" id="Doesn.27t_a_static_type_system_just_make_it_harder_to_write_programs.3F">5.1  Doesn't a static type system just make it harder to write programs? </span></h2>
+<p>Yes. In particular, it makes it <i>much</i> harder to write <i>incorrect</i> programs.
+</p><p>The tradeoff is that correct programs also become somewhat harder to write. In Haskell, features like type inference mitigate this burden to a large extent.
+</p>
+<h2> <span class="mw-headline" id="How_do_I_make_a_list_with_elements_of_different_types.3F">5.2  How do I make a list with elements of different types? </span></h2>
+<p>Are you sure that's what you want? Consider instead creating a single data type to encompass the alternatives:
+</p>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><pre class="de1"><span class="kw1">data</span> Identifier
+    <span class="sy0">=</span> ByNumber <span class="kw4">Int</span>
+    <span class="sy0">|</span> ByName   <span class="kw4">String</span>
+&#160;
+doStuff <span class="sy0">::</span> <span class="br0">&#91;</span>Identifier<span class="br0">&#93;</span> <span class="sy0">-&gt;</span> Whatever</pre></div></div>
+<p>In many dynamically-typed languages you aren't allowed to create &quot;variant types&quot; like this. The type system itself is used as a single ad-hoc global variant type. Keep this in mind if you're translating designs from a dynamically-typed language to Haskell.
+</p>
+<h2> <span class="mw-headline" id="No_really.2C_how_do_I_make_a_list_of_elements_of_different_types.3F">5.3  No really, how do I make a list of elements of different types? </span></h2>
+<p>Well, you can't avoid putting all your values into one type. But sometimes the &quot;variant type&quot; approach above is too restrictive. Maybe you need to let other people add to the set of allowed types, the way <a rel="nofollow" class="external text" href="http://www.haskell.org/ghc/docs/latest/html/libraries/base/Control-Exception.html">Control.Exception</a> allows users to define new exception types.
+</p><p>You can use an <a href="/haskellwiki/Existential_type" title="Existential type">existential type</a>, possibly with a type class. Or you can use <a rel="nofollow" class="external text" href="http://www.haskell.org/ghc/docs/latest/html/libraries/base/Data-Dynamic.html">Data.Dynamic</a>.
+</p>
+<h2> <span class="mw-headline" id="I.27m_making_an_RPG._Should_I_define_a_type_for_each_kind_of_monster.2C_and_a_type_class_for_them.3F">5.4  I'm making an RPG. Should I define a type for each kind of monster, and a type class for them? </span></h2>
+<p>Probably not. Some languages require a new type for each new behavior. In Haskell, behaviors are functions or IO actions, which are first-class values. So you can store behaviors in an ordinary data type:
+</p>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><pre class="de1"><span class="kw1">data</span> MonsterOps <span class="sy0">=</span> MonsterOps
+    <span class="br0">&#123;</span> new    <span class="sy0">::</span> Monster
+    <span class="sy0">,</span> move   <span class="sy0">::</span> Monster <span class="sy0">-&gt;</span> Monster
+    <span class="sy0">,</span> attack <span class="sy0">::</span> Monster <span class="sy0">-&gt;</span> Player <span class="sy0">-&gt;</span> Player <span class="br0">&#125;</span>
+&#160;
+<span class="kw1">data</span> Monster <span class="sy0">=</span> Monster
+    <span class="br0">&#123;</span> position  <span class="sy0">::</span> <span class="br0">&#40;</span><span class="kw4">Int</span><span class="sy0">,</span> <span class="kw4">Int</span><span class="br0">&#41;</span>
+    <span class="sy0">,</span> hitpoints <span class="sy0">::</span> <span class="kw4">Double</span> <span class="br0">&#125;</span>
+&#160;
+beholder <span class="sy0">::</span> MonsterOps
+beholder <span class="sy0">=</span> MonsterOps new move attack <span class="kw1">where</span>
+    new <span class="sy0">=</span> Monster <span class="br0">&#40;</span><span class="nu0">0</span><span class="sy0">,</span><span class="nu0">0</span><span class="br0">&#41;</span> <span class="nu0">9000</span>
+    move   self <span class="sy0">=</span> <span class="sy0">...</span>
+    attack self player <span class="sy0">=</span> <span class="sy0">...</span></pre></div></div>
+<p>This approach is especially nice if you want to generate or transform behaviors on the fly. See the article <a rel="nofollow" class="external text" href="http://lukepalmer.wordpress.com/2010/01/24/haskell-antipattern-existential-typeclass/">&quot;Haskell Antipattern: Existential Typeclass&quot;</a> for a longer discussion.
+</p>
+<h2> <span class="mw-headline" id="What.27s_the_difference_between_Integer_and_Int.3F">5.5  What's the difference between <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">Integer</span></div></div></div> and <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">Int</span></div></div></div>? </span></h2>
+<p><div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">Integer</span></div></div></div> can represent arbitrarily large integers, up to using all of the storage on your machine.</p>
+<p><div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">Int</span></div></div></div> can only represent integers in a finite range. The <a rel="nofollow" class="external text" href="http://www.haskell.org/onlinereport/haskell2010/haskellch6.html#dx13-135009">language standard</a> only guarantees a range of -2<sup>29</sup> to (2<sup>29</sup> - 1). Most implementations will provide a full machine-size signed integer, i.e. 32 or 64 bits.</p>
+Operations on <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">Int</span></div></div></div> can be much faster than operations on <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">Integer</span></div></div></div>, but overflow and underflow can cause weird bugs. Using <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">Int</span></div></div></div> in an initial design could be considered premature optimization. Unfortunately, many standard library functions (e.g. <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw3">length</span></div></div></div>, <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw3">take</span></div></div></div>) use <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">Int</span></div></div></div>.
+<h2> <span class="mw-headline" id="How_do_I_convert_type_A_to_type_B.3F">5.6  How do I convert type <tt>A</tt> to type <tt>B</tt>? </span></h2>
+This is just another way of asking for a function of type <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">A <span class="sy0">-&gt;</span> B</div></div></div>. For example, you can convert <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">Double</span></div></div></div> to <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">Int</span></div></div></div> with <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw3">round</span></div></div></div>, <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw3">ceiling</span></div></div></div>, or <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw3">floor</span></div></div></div>. Haskell does not privilege one of these as <i>the</i> conversion.
+<h2> <span class="mw-headline" id="Does_Haskell_have_type_casts.3F">5.7  Does Haskell have type casts? </span></h2>
+<p>The word &quot;cast&quot; can mean a lot of different things.
+</p>
+<ul><li> You want to convert a value from one type to another, preserving some idea of what it means. For example, you might convert an <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">Int</span></div></div></div> to a <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">Double</span></div></div></div> which represents the same integer. In this case you'd just use a function of type <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">Int</span> <span class="sy0">-&gt;</span> <span class="kw4">Double</span></div></div></div>, such as <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw3">fromIntegral</span></div></div></div>. Haskell doesn't provide special rules or syntax for these functions. See also the previous question.<br /><br />
+</li><li> You want to pass a value of more specific type to a function expecting a less specific type. There's no syntax for this in Haskell; you just do it. For example you can pass <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">x <span class="sy0">::</span> <span class="kw4">Int</span></div></div></div> to <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw3">show</span> <span class="sy0">::</span> <span class="br0">&#40;</span><span class="kw4">Show</span> a<span class="br0">&#41;</span> <span class="sy0">=&gt;</span> a <span class="sy0">-&gt;</span> <span class="kw4">String</span></div></div></div>, which automatically specializes the type of <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw3">show</span></div></div></div> to <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">Int</span> <span class="sy0">-&gt;</span> <span class="kw4">String</span></div></div></div>. Note that Haskell does not have subtyping, so this only happens in the context of instantiating type variables.<br /><br />
+</li><li> You want to use a value of less specific type under the assumption of a more specific type, with a checkable runtime error if they do not match. This is rarely the right way to do things in Haskell, and probably indicates a conceptual / design problem instead. If you really do need such a cast, you can use <a rel="nofollow" class="external text" href="http://www.haskell.org/ghc/docs/latest/html/libraries/base/Data-Typeable.html#v:cast"><tt>cast</tt></a> from <a rel="nofollow" class="external text" href="http://www.haskell.org/ghc/docs/latest/html/libraries/base/Data-Typeable.html">Data.Typeable</a>. In this case the &quot;checkable runtime error&quot; is <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">cast</div></div></div> returning <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">Nothing</div></div></div>. Note that Haskell does not have subtyping, so this only happens in the context of instantiating type variables.<br /><br />
+</li><li> You want to use a value of less specific type under the assumption of a more specific type, and if the assumption is incorrect, the program is allowed to segfault / silently corrupt data / give the attacker a root shell / send illicit photos to your boss. Also known as a "reinterpret cast". GHC Haskell has a way to do this, but I dare not speak its name. It's so dangerous and so unlikely to be what you want that it has no place in a general FAQ. You can ask on IRC or read the docs if you have the right kind of morbid curiosity.
+</li></ul>
+<h2> <span class="mw-headline" id="How_do_I_convert_from_one_numeric_type_to_another.3F">5.8  How do I convert from one numeric type to another? </span></h2>
+<p>Probably using one of these:
+</p>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><pre class="de1"><span class="kw3">fromIntegral</span> <span class="sy0">::</span> <span class="br0">&#40;</span><span class="kw4">Integral</span> a<span class="sy0">,</span> <span class="kw4">Num</span> b       <span class="br0">&#41;</span> <span class="sy0">=&gt;</span> a <span class="sy0">-&gt;</span> b
+<span class="kw3">realToFrac</span>   <span class="sy0">::</span> <span class="br0">&#40;</span><span class="kw4">Real</span> a<span class="sy0">,</span>     <span class="kw4">Fractional</span> b<span class="br0">&#41;</span> <span class="sy0">=&gt;</span> a <span class="sy0">-&gt;</span> b</pre></div></div>
+<p><div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw3">fromIntegral</span></div></div></div> converts to a wider range of types, but <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw3">realToFrac</span></div></div></div> converts from types which aren't integers.</p>
+<h2> <span class="mw-headline" id="How_do_I_convert_Maybe_Int_to_Int.3F">5.9  How do I convert <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">Maybe</span> <span class="kw4">Int</span></div></div></div> to <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">Int</span></div></div></div>? </span></h2>
+Use pattern-matching. If <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">mx <span class="sy0">::</span> <span class="kw4">Maybe</span> <span class="kw4">Int</span></div></div></div>:
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><pre class="de1"><span class="kw1">case</span> mx <span class="kw1">of</span>
+    Just x  <span class="sy0">-&gt;</span> <span class="sy0">...</span>
+    Nothing <span class="sy0">-&gt;</span> <span class="sy0">...</span></pre></div></div>
+This forces you to consider the <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">Nothing</div></div></div> case, and is the main advantage of <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">Maybe</span></div></div></div>, compared to adding a <tt>null</tt> value to every type.
+<p>See also the functions <a rel="nofollow" class="external text" href="http://www.haskell.org/ghc/docs/latest/html/libraries/base/Data-Maybe.html#v:maybe"><tt>maybe</tt></a> and <a rel="nofollow" class="external text" href="http://www.haskell.org/ghc/docs/latest/html/libraries/base/Data-Maybe.html#v:fromMaybe"><tt>fromMaybe</tt></a> in the module <a rel="nofollow" class="external text" href="http://www.haskell.org/ghc/docs/latest/html/libraries/base/Data-Maybe.html">Data.Maybe</a>.
+</p>
+<i>Do not</i> use <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">fromJust</div></div></div>, because passing <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">Nothing</div></div></div> will crash your program with a supremely unhelpful error message. Even when you want to assume the value is not <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">Nothing</div></div></div>, you can provide a better error message:
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><pre class="de1"><span class="kw1">let</span> x <span class="sy0">=</span> fromMaybe <span class="br0">&#40;</span><span class="kw3">error</span> <span class="st0">&quot;custom error message&quot;</span><span class="br0">&#41;</span> mx <span class="kw1">in</span> <span class="sy0">...</span></pre></div></div>
+If you pattern-match without a <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">Nothing</div></div></div> case:
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><pre class="de1"><span class="kw1">let</span> Just x <span class="sy0">=</span> mx <span class="kw1">in</span> <span class="sy0">...</span></pre></div></div>
+<p>you'll at least get a line number in the error message:
+</p>
+<pre>
+*** Exception: foo.hs:2:9-24: Irrefutable pattern failed for pattern Data.Maybe.Just x
+</pre>
+<h2> <span class="mw-headline" id="How_do_I_convert_IO_Int_to_Int.3F">5.10  How do I convert <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">IO</span> <span class="kw4">Int</span></div></div></div> to <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">Int</span></div></div></div>? </span></h2>
+You can't; they represent totally different things. An <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">Int</span></div></div></div> is an integer. An <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">IO</span> <span class="kw4">Int</span></div></div></div> is a description of how some IO could be performed, in the future, to produce an integer. The IO hasn't been performed yet, and might never happen or might happen more than once.
+<p>See the <a href="/haskellwiki/Introduction_to_IO" title="Introduction to IO">Introduction to IO</a>.
+</p>
+<h2> <span class="mw-headline" id="How_do_I_convert_between_String_.28or_Text.29_and_ByteString.3F">5.11  How do I convert between <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">String</span></div></div></div> (or <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">Text</div></div></div>) and <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">ByteString</div></div></div>? </span></h2>
+<p><div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">String</span></div></div></div> represents a sequence of Unicode characters. <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">ByteString</div></div></div> represents a sequence of bytes. There are many different, incompatible ways to represent Unicode characters as bytes. See <a rel="nofollow" class="external text" href="http://www.joelonsoftware.com/articles/Unicode.html">this article</a> if you're fuzzy on the character / byte distinction.</p>
+<p>The module <a rel="nofollow" class="external text" href="http://hackage.haskell.org/packages/archive/text/0.11.1.5/doc/html/Data-Text-Encoding.html">Data.Text.Encoding</a> from the <tt>text</tt> package provides functions for common Unicode encodings. For more obscure / legacy encodings, see the <a rel="nofollow" class="external text" href="http://hackage.haskell.org/package/text-icu"><tt>text-icu</tt></a> package.
+</p>
+<h2> <span class="mw-headline" id="How_do_I_catch_the_error_thrown_by_read_on_a_parse_failure.3F">5.12  How do I catch the error thrown by <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw3">read</span></div></div></div> on a parse failure? </span></h2>
+<p>Don't. Instead use
+</p>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><pre class="de1"><span class="kw3">reads</span> <span class="sy0">::</span> <span class="br0">&#40;</span><span class="kw4">Read</span> a<span class="br0">&#41;</span> <span class="sy0">=&gt;</span> <span class="kw4">String</span> <span class="sy0">-&gt;</span> <span class="br0">&#91;</span><span class="br0">&#40;</span>a<span class="sy0">,</span> <span class="kw4">String</span><span class="br0">&#41;</span><span class="br0">&#93;</span></pre></div></div>
+<p>which returns a list of parses, each with a value and a remaining string. An example:
+</p>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><pre class="de1">safeRead <span class="sy0">::</span> <span class="br0">&#40;</span><span class="kw4">Read</span> a<span class="br0">&#41;</span> <span class="sy0">=&gt;</span> <span class="kw4">String</span> <span class="sy0">-&gt;</span> <span class="kw4">Maybe</span> a
+safeRead x <span class="sy0">=</span> <span class="kw1">case</span> <span class="kw3">reads</span> x <span class="kw1">of</span>
+    <span class="br0">&#91;</span><span class="br0">&#40;</span>v<span class="sy0">,</span><span class="st0">&quot;&quot;</span><span class="br0">&#41;</span><span class="br0">&#93;</span> <span class="sy0">-&gt;</span> Just v
+    <span class="sy0">_</span>        <span class="sy0">-&gt;</span> Nothing</pre></div></div>
+<h2> <span class="mw-headline" id="What.27s_the_difference_between_type.2C_data.2C_and_newtype.3F">5.13  What's the difference between <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw1">type</span></div></div></div>, <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw1">data</span></div></div></div>, and <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw1">newtype</span></div></div></div>? </span></h2>
+<p><div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw1">type</span></div></div></div> introduces a synonym, which is fully interchangeable with the original type:</p>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><pre class="de1"><span class="kw1">type</span> Foo <span class="sy0">=</span> <span class="kw4">Int</span>
+&#160;
+main <span class="sy0">=</span> <span class="kw3">print</span> <span class="br0">&#40;</span><span class="br0">&#40;</span>2 <span class="sy0">::</span> <span class="kw4">Int</span><span class="br0">&#41;</span> <span class="sy0">+</span> <span class="br0">&#40;</span><span class="nu0">3</span> <span class="sy0">::</span> Foo<span class="br0">&#41;</span><span class="br0">&#41;</span></pre></div></div>
+<p>So it provides convenience and documentation, but no additional type checking.
+</p>
+<p><div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw1">data</span></div></div></div> is used to define new data types, distinct from any existing type.</p>
+<p><div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw1">newtype</span></div></div></div> can mostly be understood as a restricted form of <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw1">data</span></div></div></div>.  You can use <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw1">newtype</span></div></div></div> when you have exactly one constructor with exactly one field.  In those cases, <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw1">newtype</span></div></div></div> can give better performance than <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw1">data</span></div></div></div>.</p>
+There is, however, a <a href="/haskellwiki/Newtype" title="Newtype">subtle difference</a> between <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw1">data</span></div></div></div> and <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw1">newtype</span></div></div></div> semantics, which is why the <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw1">newtype</span></div></div></div> optimization is not applied automatically.
+<h1> <span class="mw-headline" id="Making_it_work">6  Making it work </span></h1>
+<h2> <span class="mw-headline" id="How_can_I_find_type_errors.3F">6.1  How can I find type errors? </span></h2>
+<p>There's no silver bullet, but here are a few useful techniques:
+</p>
+<ul><li> Comment out type signatures and see what GHC infers, using <tt>:t</tt> in GHCi.
+</li><li> Add more type signatures, for example inside <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw1">let</span></div></div></div>. This makes your assumptions clearer, so GHC's error message may better explain how your assumptions are inconsistent.
+</li><li> Replace some subexpressions with <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw3">undefined</span></div></div></div>, which can assume any type. In more recent versions of GHC, you should insert a "type hole", written <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="sy0">_</span></div></div></div> (a single underscore) instead of <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw3">undefined</span></div></div></div> for this purpose. GHC's error message will then indicate the type it's expecting for the expression in the hole.
+</li></ul>
+<h2> <span class="mw-headline" id="How_can_I_find_bugs_that_occur_at_runtime.3F">6.2  How can I find bugs that occur at runtime? </span></h2>
+<p>With pure functions, correctness is a matter of getting the right output for a given input. If one function gives incorrect results, you test the functions it calls, and so on until the bad code is located. You can perform these tests directly in GHCi, or with the help of a tool like QuickCheck.
+</p><p>You can trace evaluation using <a rel="nofollow" class="external text" href="http://www.haskell.org/ghc/docs/latest/html/libraries/base/Debug-Trace.html">Debug.Trace</a>. You'll get a printout when the expression is evaluated. Due to lazy evaluation, this might be at an unexpected time. But this property is useful when debugging problems related to excessive laziness.
+</p><p>GHCi also implements a <a rel="nofollow" class="external text" href="http://www.haskell.org/ghc/docs/latest/html/users_guide/ghci-debugger.html">&quot;simple imperative-style debugger&quot;</a>.
+</p><p>Haskell is a natural fit for novel <a rel="nofollow" class="external text" href="http://ww2.cs.mu.oz.au/~bjpop/buddha/">&quot;declarative debugging&quot; tools</a> but to our knowledge, no such tool is production-ready.
+</p>
+<h2> <span class="mw-headline" id="Why_do_I_get_an_.22undefined_symbol.22_linker_error_when_compiling.3F">6.3  Why do I get an &quot;undefined symbol&quot; linker error when compiling? </span></h2>
+<p>If you're using GHC 6, you should pass <tt>--make</tt> so that GHC will automatically link the appropriate Haskell libraries.
+</p>
+<h2> <span class="mw-headline" id="How_can_I_get_a_stack_backtrace_when_my_program_throws_an_exception.3F">6.4  How can I get a stack backtrace when my program throws an exception? </span></h2>
+<p>The standard stack in GHC Haskell doesn't represent nested function calls. The more informative stack is the profiling cost-center stack, which only exists if your code is built for profiling.
+</p><p>With GHC 7 you can do something like this:
+</p>
+<pre>$ ghc -fforce-recomp -prof -auto-all -rtsopts foo.hs</pre>
+<p>For GHC 6 you should leave off <tt>-rtsopts</tt>, and you'll probably want <tt>--make</tt>.
+</p><p>You can then run your program with the <a rel="nofollow" class="external text" href="http://www.haskell.org/ghc/docs/latest/html/users_guide/runtime-control.html#rts-options-debugging"><tt>-xc</tt> RTS option`</a>:
+</p>
+<pre>$ ./foo +RTS -xc</pre>
+<h2> <span class="mw-headline" id="How_can_I_do_automated_unit_testing.3F">6.5  How can I do automated unit testing? </span></h2>
+<p>See the <a rel="nofollow" class="external text" href="http://book.realworldhaskell.org/read/testing-and-quality-assurance.html">testing chapter</a> in <i>Real World Haskell</i>.
+</p>
+<h2> <span class="mw-headline" id="How_can_I_find_and_fix_performance_problems.3F">6.6  How can I find and fix performance problems? </span></h2>
+<p>See the <a rel="nofollow" class="external text" href="http://book.realworldhaskell.org/read/profiling-and-optimization.html">profiling and optimization chapter</a> in <i>Real World Haskell</i>.
+</p>
+<h1> <span class="mw-headline" id="Modules">7  Modules </span></h1>
+<h2> <span class="mw-headline" id="How_do_I_deal_with_name_clashes_between_modules.3F">7.1  How do I deal with name clashes between modules? </span></h2>
+<p>You can disambiguate by prefixing a module name:
+</p>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><pre class="de1"><span class="kw1">import</span> Data<span class="sy0">.</span>List
+<span class="kw1">import</span> Data<span class="sy0">.</span>Map
+&#160;
+f <span class="sy0">=</span> Data<span class="sy0">.</span>List<span class="sy0">.</span><span class="kw3">lookup</span> 7
+g <span class="sy0">=</span> Data<span class="sy0">.</span>Map<span class="sy0">.</span><span class="kw3">lookup</span>  <span class="nu0">7</span></pre></div></div>
+<p>The import syntax gives you additional control:
+</p>
+<ul><li> With <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw1">import</span> <span class="kw1">qualified</span> Foo</div></div></div> the names from <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">Foo</div></div></div> can <i>only</i> be used qualified, and won't clash with unqualified names.
+</li></ul>
+<ul><li> With <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw1">import</span> Foo <span class="kw1">as</span> M</div></div></div> you'd write <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">M<span class="sy0">.</span>x</div></div></div> instead of <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">Foo<span class="sy0">.</span>x</div></div></div>.
+</li></ul>
+<p>You can combine these two features.  A more common way to write the above example is:
+</p>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><pre class="de1"><span class="kw1">import</span> <span class="kw1">qualified</span> Data<span class="sy0">.</span>Map <span class="kw1">as</span> M
+&#160;
+f <span class="sy0">=</span> <span class="kw3">lookup</span>   <span class="nu0">7</span>  <span class="co1">-- unqualified, from Prelude</span>
+g <span class="sy0">=</span> M<span class="sy0">.</span><span class="kw3">lookup</span> <span class="nu0">7</span></pre></div></div>
+In general, most combinations of <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw1">import</span></div></div></div> features are allowed.  You
+can combine <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw1">as</span></div></div></div> and <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw1">qualified</span></div></div></div> with import and
+<div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw1">hiding</span></div></div></div> lists.  You can import two modules <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw1">as</span></div></div></div> the same
+name, or one module <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw1">as</span></div></div></div> two names, with different import and
+<div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw1">hiding</span></div></div></div> lists, <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw1">qualified</span></div></div></div> or unqualified, etc.
+<h2> <span class="mw-headline" id="How_do_I_control_the_Prelude_import.3F">7.2  How do I control the <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw2">Prelude</span></div></div></div> import? </span></h2>
+Haskell modules implicitly import <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw2">Prelude</span></div></div></div>, unless an explicit import is given.  So you can write
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><pre class="de1"><span class="kw1">import</span> <span class="kw2">Prelude</span> <span class="kw1">as</span> P <span class="kw1">hiding</span> <span class="br0">&#40;</span><span class="kw3">length</span><span class="sy0">,</span> <span class="kw3">head</span><span class="br0">&#41;</span></pre></div></div>
+<h2> <span class="mw-headline" id="How_do_I_qualify_the_name_of_an_infix_operator.3F">7.3  How do I qualify the name of an infix operator? </span></h2>
+<p>You prefix the module name, as usual:
+</p>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><pre class="de1">x <span class="sy0">=</span> 2 <span class="sy0">+</span> 3
+y <span class="sy0">=</span> 2 <span class="kw2">Prelude</span><span class="sy0">.+</span> 3
+&#160;
+f <span class="sy0">=</span> <span class="br0">&#40;</span><span class="sy0">+</span><span class="br0">&#41;</span> 7
+g <span class="sy0">=</span> <span class="br0">&#40;</span><span class="kw2">Prelude</span><span class="sy0">.+</span><span class="br0">&#41;</span> <span class="nu0">7</span></pre></div></div>
+<p>This looks weird but works fine.  The syntax does clash a bit:
+</p>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><pre class="de1">xs <span class="sy0">=</span> <span class="br0">&#91;</span>False<span class="sy0">..</span>True<span class="br0">&#93;</span>    <span class="co1">-- wrong, parses as qualified name</span>
+xs <span class="sy0">=</span> <span class="br0">&#91;</span>False <span class="sy0">..</span> True<span class="br0">&#93;</span>  <span class="co1">-- ok</span></pre></div></div>
+<h2> <span class="mw-headline" id="How_do_I_mention_an_infix_operator_in_an_export_.2F_import_.2F_hiding_list.3F">7.4  How do I mention an infix operator in an export / import / <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw1">hiding</span></div></div></div> list? </span></h2>
+<p>The same way as elsewhere: enclose it in parentheses.
+</p>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><pre class="de1"><span class="kw1">import</span> <span class="kw2">Prelude</span> <span class="br0">&#40;</span> <span class="kw3">succ</span><span class="sy0">,</span> <span class="br0">&#40;</span><span class="sy0">+</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="kw3">length</span><span class="sy0">,</span> <span class="br0">&#40;</span><span class="sy0">*</span><span class="br0">&#41;</span> <span class="br0">&#41;</span></pre></div></div>
+<h2> <span class="mw-headline" id="I_listed_a_data_type_in_my_import_list_but_its_data_constructors_aren.27t_in_scope._How_do_I_fix_it.3F">7.5  I listed a data type in my import list but its data constructors aren't in scope. How do I fix it? </span></h2>
+<p>You have to import data constructors explicitly:
+</p>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><pre class="de1"><span class="kw1">import</span> <span class="kw2">Prelude</span> <span class="br0">&#40;</span> <span class="kw4">Maybe</span> <span class="br0">&#41;</span>           <span class="co1">-- the type only</span>
+<span class="kw1">import</span> <span class="kw2">Prelude</span> <span class="br0">&#40;</span> <span class="kw4">Maybe</span><span class="br0">&#40;</span>Nothing<span class="br0">&#41;</span> <span class="br0">&#41;</span>  <span class="co1">-- type and specific constructor(s)</span>
+<span class="kw1">import</span> <span class="kw2">Prelude</span> <span class="br0">&#40;</span> <span class="kw4">Maybe</span><span class="br0">&#40;</span><span class="sy0">..</span><span class="br0">&#41;</span> <span class="br0">&#41;</span>       <span class="co1">-- type and all its constructors</span></pre></div></div>
+<h2> <span class="mw-headline" id="How_can_I_import_and_re-export_a_whole_module.3F">7.6  How can I import and re-export a whole module? </span></h2>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><pre class="de1"><span class="kw1">module</span> Bar <span class="br0">&#40;</span> <span class="kw1">module</span> Foo <span class="br0">&#41;</span> <span class="kw1">where</span>
+<span class="kw1">import</span> Foo</pre></div></div>
+<h2> <span class="mw-headline" id="How_can_I_export_another_module_and_everything_defined_in_this_module.3F">7.7  How can I export another module <i>and</i> everything defined in this module? </span></h2>
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><pre class="de1"><span class="kw1">module</span> Bar <span class="br0">&#40;</span> <span class="kw1">module</span> Bar<span class="sy0">,</span> <span class="kw1">module</span> Foo <span class="br0">&#41;</span> <span class="kw1">where</span>
+<span class="kw1">import</span> Foo</pre></div></div>
+<h1> <span class="mw-headline" id="The_M-word">8  The M-word </span></h1>
+<p>See also &quot;<a href="/haskellwiki/What_a_Monad_is_not" title="What a Monad is not">What a Monad is not</a>&quot;.
+</p>
+<h2> <span class="mw-headline" id="I_heard_Haskell_is_about_monads._I_heard_that_the_core_feature_of_Haskell_is_monads._Is_that_true.3F">8.1  I heard Haskell is about monads. I heard that the core feature of Haskell is monads. Is that true? </span></h2>
+<p>Absolutely not.
+</p>
+<h2> <span class="mw-headline" id="Do_I_need_to_understand_monads_in_order_to_do_IO.3F">8.2  Do I need to understand monads in order to do IO? </span></h2>
+Not really. &quot;<tt>Monad</tt>&quot; is the name of a generic API that applies to many different types, including the <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">IO</span></div></div></div> type. If you're only thinking about IO, you don't need to worry about how this API generalizes.
+<p>See the <a href="/haskellwiki/Introduction_to_IO" title="Introduction to IO">Introduction to IO</a>.
+</p>
+<h2> <span class="mw-headline" id="What_should_I_know_before_trying_to_understand_monads.3F">8.3  What should I know before trying to understand monads? </span></h2>
+Let's look at part of the definition of <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">Monad</span></div></div></div>:<br /><br />
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><pre class="de1"><span class="kw1">class</span> <span class="kw4">Monad</span> m <span class="kw1">where</span>
+    <span class="br0">&#40;</span><span class="sy0">&gt;&gt;=</span><span class="br0">&#41;</span> <span class="sy0">::</span> m a <span class="sy0">-&gt;</span> <span class="br0">&#40;</span>a <span class="sy0">-&gt;</span> m b<span class="br0">&#41;</span> <span class="sy0">-&gt;</span> m b</pre></div></div>
+<p>This uses a lot of features:
+</p>
+<ul><li> first-class functions: the second argument to <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="br0">&#40;</span><span class="sy0">&gt;&gt;=</span><span class="br0">&#41;</span></div></div></div> is a function
+</li></ul>
+<ul><li> type constructors (here <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">m</div></div></div>)
+</li></ul>
+<ul><li> type class polymorphism
+</li></ul>
+<ul><li> type class polymorphism <i>over</i> type constructors (which few other languages have)
+</li></ul>
+<ul><li> parametric (not type class) polymorphism, over <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">a</div></div></div> and <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">b</div></div></div>
+</li></ul>
+Each of these features is more fundamental than the specific idea of monads.  If you understand each feature, then <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">Monad</span></div></div></div> is a small example of how they fit together.  <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">Functor</span></div></div></div> is a slightly simpler example, and you can start there instead (see <a href="/haskellwiki/Typeclassopedia" title="Typeclassopedia">Typeclassopedia</a>).
+<h2> <span class="mw-headline" id="Aren.27t_monads_just_a_hack_for_handling_impure_things_in_a_pure_language.3F">8.4  Aren't monads just a hack for handling impure things in a pure language? </span></h2>
+<p>No.  This is wrong in several ways.
+</p>
+First, <b><div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">Monad</span></div></div></div> isn't special.</b> <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">Monad</span></div></div></div> is an ordinary Haskell type class.  You can define it yourself in a few lines of pure Haskell code, so it's definitely not adding magical new capabilities to the language.  Besides that, <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">Monad</span></div></div></div> is an API, not an implementation.<br /><br />
+(The <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw1">do</span></div></div></div> syntax <i>is</i> special, but it's only <a href="/haskellwiki/Syntactic_sugar" title="Syntactic sugar">syntactic sugar</a>.  There's a straightforward translation to ordinary function calls, lambdas, etc.)<br /><br />
+Second, <b>most monads have nothing to do with effects or "impurity".</b>  The <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">Monad</span></div></div></div> API is implemented by many different type constructors, including <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">Maybe</span></div></div></div> and <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="br0">&#91;</span><span class="br0">&#93;</span></div></div></div>.  Lists and <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">Maybe</span></div></div></div> values are straightforward, familiar data values.  There's nothing "impure" about them.<br /><br />
+Third, <b><div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">IO</span></div></div></div> is not an exception to purity.</b>  IO actions are pure, first-class values like any other.  You can create, store, and evaluate them without causing side effects.  IO actions are just <i>descriptions</i> of IO which <i>could</i> be performed.<br />
+<p>In short, Haskell programs are pure-functional programs which compute imperative programs.
+</p>
+It's true that <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">IO</span></div></div></div> implements the <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">Monad</span></div></div></div> API, but that's not fundamental.  You could instead use non-overloaded functions like<br /><br />
+<div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><pre class="de1">returnIO <span class="sy0">::</span> a <span class="sy0">-&gt;</span> <span class="kw4">IO</span> a
+bindIO   <span class="sy0">::</span> <span class="kw4">IO</span> a <span class="sy0">-&gt;</span> <span class="br0">&#40;</span>a <span class="sy0">-&gt;</span> <span class="kw4">IO</span> b<span class="br0">&#41;</span> <span class="sy0">-&gt;</span> <span class="kw4">IO</span> b</pre></div></div>
+<br />to glue together IO actions, and it would all work out basically the same.  We use the generic <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">Monad</span></div></div></div> API for <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">IO</span></div></div></div> not because we have to, but because it lets us reuse convenient syntax and <a rel="nofollow" class="external text" href="http://www.haskell.org/ghc/docs/latest/html/libraries/base/Control-Monad.html">libraries</a>.  Indeed, you can <a href="/haskellwiki/Introduction_to_IO" title="Introduction to IO">introduce <tt>IO</tt></a> without mentioning <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw4">Monad</span></div></div></div> at all.
+<h2> <span class="mw-headline" id="I_heard_monads_are_like_burritos_or_space_suits_full_of_nuclear_waste._Is_that_true.3F">8.5  I heard monads are like burritos or space suits full of nuclear waste. Is that true? </span></h2>
+<p>These analogies are not helpful. See <a rel="nofollow" class="external text" href="http://byorgey.wordpress.com/2009/01/12/abstraction-intuition-and-the-monad-tutorial-fallacy/">&quot;Abstraction, intuition, and the 'monad tutorial fallacy&quot;'</a>.
+</p>
+<h2> <span class="mw-headline" id="I_can_use_monads_but_I_feel_like_I_still_don.27t_.22get.22_them._What_am_I_missing.3F">8.6  I can use monads but I feel like I still don't &quot;get&quot; them. What am I missing? </span></h2>
+<p>You're not necessarily missing anything. &quot;<tt>Monad</tt>&quot; is just the name of a generic API that applies to many different types. The types implementing the <tt>Monad</tt> API don't have a lot in common.
+</p><p>You might want to read &quot;<a href="/haskellwiki/Typeclassopedia" title="Typeclassopedia">Typeclassopedia</a>&quot; to see how <tt>Monad</tt> fits in with other similar APIs.
+</p>
+<h2> <span class="mw-headline" id="What.27s_the_difference_between_State_s_and_ST_s_monads.3F">8.7  What's the difference between <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">State s</div></div></div> and <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">ST s</div></div></div> monads? </span></h2>
+<tt>State s a</tt> is just a wrapper for the function type <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">s <span class="sy0">-&gt;</span> <span class="br0">&#40;</span>a<span class="sy0">,</span> s<span class="br0">&#41;</span></div></div></div>: a function that takes an &quot;old state&quot; and returns a &quot;new state&quot; along with its result. You can implement <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">State</div></div></div> in a few lines of standard Haskell, without any special help from the compiler.
+<div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">ST</div></div></div> gives you true mutable variables with in-place update. You can't implement it yourself in standard Haskell. In GHC, <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">STRef</div></div></div> and <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">IORef</div></div></div> will behave the same way at runtime. The difference is the extra compile-time safety checking associated with <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">runST</div></div></div>.
+<h1> <span class="mw-headline" id="Concurrency_and_parallelism">9  Concurrency and parallelism </span></h1>
+<p>See also notes on <a href="/haskellwiki/Parallel" title="Parallel">parallel</a> and <a href="/haskellwiki/Concurrency" title="Concurrency">concurrent</a> programming.
+</p>
+<h2> <span class="mw-headline" id="How_can_I_do_X_without_resorting_to_threads.3F">9.1  How can I do X without resorting to threads? </span></h2>
+<p>That's usually the wrong attitude.  Threads are useful for solving problems.  The attitude comes from other languages where some combination of the following holds:
+</p>
+<ul><li> Per-thread overhead consumes a lot of memory or CPU
+</li></ul>
+<ul><li> Thread APIs are cumbersome, sometimes due to lacking first-class functions or IO actions
+</li></ul>
+<ul><li> The thread implementation is fundamentally broken, e.g. a global interpreter lock
+</li></ul>
+<ul><li> Threads break easily because programs constantly mutate implicitly-shared state
+</li></ul>
+<p>None of these is true in GHC Haskell.  Threads have disadvantages and are not always the right tool.  But avoiding them at all costs is counterproductive.
+</p>
+<h2> <span class="mw-headline" id="What.27s_the_difference_between_concurrency_and_parallelism.3F">9.2  What's the difference between concurrency and parallelism? </span></h2>
+<p>Briefly: concurrency describes semantics; parallelism describes an implementation property.
+</p><p>Concurrent programs are written with explicit threads of control.  Concurrent semantics fit naturally with certain real-world problems, like a network server talking to many simultaneous clients.  This is still a nice model for writing a network server, even if you only intend to run it on one CPU core — concurrency without parallelism.
+</p><p>Parallel programs are those which run on multiple CPU cores simultaneously, regardless of how they were implemented.
+</p><p>Concurrency is a popular way to obtain parallel performance, but converting a pure computation to use concurrent semantics is difficult and error-prone.  GHC Haskell provides "<a rel="nofollow" class="external text" href="http://hackage.haskell.org/packages/archive/parallel/latest/doc/html/Control-Parallel-Strategies.html">semi-implicit parallelism</a>" as an alternative.  Adding these "annotations" to a program cannot change its behavior.
+</p><p>There's a longer discussion on the <a rel="nofollow" class="external text" href="http://ghcmutterings.wordpress.com/2009/10/06/parallelism-concurrency/">GHC blog</a>.
+</p>
+<h2> <span class="mw-headline" id="How_do_par.2C_pseq.2C_and_seq_relate.3F">9.3  How do <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">par</div></div></div>, <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">pseq</div></div></div>, and <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw3">seq</span></div></div></div> relate? </span></h2>
+The expression <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">par x y</div></div></div> is semantically equivalent to <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">y</div></div></div>, but suggests to the runtime system that evaluating <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">x</div></div></div> in parallel might be a good idea.  Usually <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">x</div></div></div> would be a variable referring to a thunk (unevaluated expression) that will later be needed.<br /><br />
+Now consider <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">par x <span class="br0">&#40;</span>x<span class="sy0">+</span>y<span class="br0">&#41;</span></div></div></div>.  Evaluating this expression suggests evaluating <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">x</div></div></div> in parallel.  But before the runtime system can act on that suggestion, we evaluate <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="br0">&#40;</span>x<span class="sy0">+</span>y<span class="br0">&#41;</span></div></div></div>, which will evaluate both <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">x</div></div></div> and <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">y</div></div></div> in sequence.  It would be better to work on <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">y</div></div></div> for a while, and only demand <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">x</div></div></div> later, after perhaps some parallel work has occurred.  We can use <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">pseq</div></div></div> to force this evaluation order, as in <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">par x <span class="br0">&#40;</span>pseq y <span class="br0">&#40;</span>x<span class="sy0">+</span>y<span class="br0">&#41;</span><span class="br0">&#41;</span></div></div></div>.<br /><br />
+The <a rel="nofollow" class="external text" href="http://hackage.haskell.org/packages/archive/parallel/latest/doc/html/Control-Parallel-Strategies.html">Strategies</a> module provides a nicer interface to these <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">par</div></div></div> / <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">pseq</div></div></div> tricks.
+<p><div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;"><span class="kw3">seq</span></div></div></div> is similar to <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">pseq</div></div></div> but provides a weaker guarantee.  <a rel="nofollow" class="external text" href="http://www.mail-archive.com/glasgow-haskell-users@haskell.org/msg10973.html">The details</a> are subtle; suffice to say that if you're controlling evaluation order, you want <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">pseq</div></div></div>.</p>
+<h2> <span class="mw-headline" id="How_do_I_do_event-based_IO_in_GHC_Haskell.3F_Should_I_call_select.2C_epoll.2C_etc.3F">9.4  How do I do event-based IO in GHC Haskell?  Should I call <tt>select</tt>, <tt>epoll</tt>, etc? </span></h2>
+<p>No; just do blocking IO from multiple threads, and GHC's runtime system will make these calls for you.  GHC Haskell gives you the performance benefits of event-based IO without making you turn your code inside-out.
+</p><p>Threads in GHC are lightweight — both in performance and in the mental effort of using them.  You can handle <a rel="nofollow" class="external text" href="http://blog.johantibell.com/2010/09/final-version-of-our-ghc-io-manager.html">ten thousand concurrent requests</a> at high throughput with a naive "one thread per client" model.
+</p>
+<h2> <span class="mw-headline" id="What.27s_the_difference_between_forkIO_and_forkOS.3F">9.5  What's the difference between <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">forkIO</div></div></div> and <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">forkOS</div></div></div>? </span></h2>
+It only matters if you're calling into a C library that cares about thread-local state.  In that case, <div class="inline-code"><div dir="ltr" class="mw-geshi mw-content-ltr"><div class="haskell source-haskell" style="font-family:monospace;">forkOS</div></div></div> guarantees that the C library will see the same OS thread each time.  Any difference beyond that is an implementation detail and subject to change.
+<h2> <span class="mw-headline" id="How_can_I_wait_for_a_thread_to_finish_and_produce_a_result.3F">9.6  How can I wait for a thread to finish and produce a result? </span></h2>
+<p>There's a few libraries for this on Hackage, like <a rel="nofollow" class="external text" href="http://hackage.haskell.org/package/async"><tt>async</tt></a>, <a rel="nofollow" class="external text" href="http://hackage.haskell.org/package/spawn"><tt>spawn</tt></a>, and <a rel="nofollow" class="external text" href="http://hackage.haskell.org/package/threads"><tt>threads</tt></a>.
+</p><p>It's not hard to implement this yourself using <a rel="nofollow" class="external text" href="http://www.haskell.org/ghc/docs/latest/html/libraries/base/Control-Concurrent-MVar.html"><tt>MVar</tt></a>, though it's harder to get the exception handling right.
+</p>
+<h1> <span class="mw-headline" id="IRC">10  IRC </span></h1>
+<h2> <span class="mw-headline" id="What_does_lambdabot.27s_.22info.22_command_do.3F">10.1  What does lambdabot's "info" command do? </span></h2>
+<p>At first, it seems like it just echos whatever you type:
+</p>
+<pre>   &lt;user&gt;&#160;?info foo bar baz
+   &lt;lambdabot&gt; foo bar baz
+</pre>
+<p>What is actually happening is that it autocorrects to the "undo" command, which desugars do blocks according to the Report's rules. So, a more interesting example might look like this:
+</p>
+<pre>   &lt;user&gt;&#160;?info do { foo; x &lt;- bar; baz }
+   &lt;lambdabot&gt; foo &gt;&gt; bar &gt;&gt;= \ x -&gt; baz
+</pre>
+<!-- 
+NewPP limit report
+Preprocessor node count: 1674/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:6656-0!*!0!1!en!*!* and timestamp 20140916125055 -->
+</div><div class="printfooter">
+Retrieved from "<a href="http://www.haskell.org/haskellwiki/index.php?title=FAQ&amp;oldid=58787">http://www.haskell.org/haskellwiki/index.php?title=FAQ&amp;oldid=58787</a>"</div>
+			<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/haskellwiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/haskellwiki/Category:FAQ" title="Category:FAQ">FAQ</a></li></ul></div></div>			<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div></div>
+		<div id="column-one">
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="/haskellwiki/Haskell">Haskell</a></li>
+				<li id="n-portal"><a href="/haskellwiki/HaskellWiki:Community">Wiki community</a></li>
+				<li id="n-recentchanges"><a href="/haskellwiki/Special:RecentChanges">Recent changes</a></li>
+				<li id="n-randompage"><a href="/haskellwiki/Special:Random">Random page</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/haskellwiki/Special:WhatLinksHere/FAQ">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/haskellwiki/Special:RecentChangesLinked/FAQ">Related changes</a></li>
+<li id="t-specialpages"><a href="/haskellwiki/Special:SpecialPages">Special pages</a></li>
+				<li id="t-print"><a href="/haskellwiki/index.php?title=FAQ&amp;printable=yes" rel="alternate">Printable version</a></li>				<li id="t-permalink"><a href="/haskellwiki/index.php?title=FAQ&amp;oldid=58787">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="//www.mediawiki.org/"><img src="/wikistatic/skins//common/images/poweredby_mediawiki_88x31.png" height="31" width="88" alt="Powered by MediaWiki" /></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified on 9 September 2014, at 08:25.</li>
+					<li id="viewcount">This page has been accessed 18,040 times.</li>
+					<li id="copyright">Recent content is available under <a href="/haskellwiki/HaskellWiki:Copyrights" title="HaskellWiki:Copyrights">a simple permissive license</a>.</li>
+					<li id="privacy"><a href="/haskellwiki/HaskellWiki:Privacy_policy" title="HaskellWiki:Privacy policy">Privacy policy</a></li>
+					<li id="about"><a href="/haskellwiki/HaskellWiki:About" title="HaskellWiki:About">About HaskellWiki</a></li>
+					<li id="disclaimer"><a href="/haskellwiki/HaskellWiki:General_disclaimer" title="HaskellWiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+</div>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.user","mediawiki.page.ready"], null, true);
+}</script>
+<script src="http://www.haskell.org/haskellwiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=scripts&amp;skin=hawiki&amp;*"></script>
+<!-- Served in 0.898 secs. --><script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15375175-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body></html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>apfelmus - Monoids and Finger Trees</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Heinrich Apfelmus" />
+  <meta name="description" content="Explains how monoids enable one and the same tree data structure, the finger tree, to implement virtually any other data structures; they arise by different choices of monoids. The technique is discussed using the examples of a list with random access and a priority queue." />
+  <meta name="keywords" content="Explains how monoids enable one and the same tree data structure, the finger tree, to implement virtually any other data structures; they arise by different choices of monoids. The technique is discussed using the examples of a list with random access and a priority queue." />
+  <meta name="date" content="20 Jan 2009 11:49:33 +0100" />
+  
+  <link rel="stylesheet" href="../format.css" type="text/css" />
+  <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/rss.xml" />
+  
+<!-- Flattr loader -->
+<script type="text/javascript">
+/* <![CDATA[ */
+    (function() {
+        var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+        
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto&uid=20632&language=en_GB&button=compact';
+        // actually, I use american spelling
+        t.parentNode.insertBefore(s, t);
+    })();
+/* ]]> */
+</script>
+<!-- DISQUS parameters -->
+<script type="text/javascript">
+var disqus_developer = 0;
+var disqus_url       = 'http://apfelmus.nfshost.com/articles/monoid-fingertree.html';
+var debug            = location.href.indexOf('file://') >= 0;
+</script>
+
+</head>
+<!-- body -->
+<body>
+<!-- head -->
+<div id="header"><div id="box">&nbsp;</div></div>
+<!-- sidebar -->
+<div id="sidebar">
+<div class="section">Home</div>
+<ul><li><a href="../about.html">About</a>
+</li><li><a href="../links.html">Links</a>
+</li></ul>
+<div class="section">Haskell articles</div>
+<ul>
+<li><a href="../articles/monoid-fingertree.html">Monoids and Finger Trees</a></li>
+<li><a href="../articles/operational-monad.html">The Operational Monad Tutorial</a></li>
+<li><a href="../articles/quicksearch.html">Quicksort and k<sup>th</sup> Minimum</a></li>
+<li><a href="../articles/implicit-heaps.html">Implicit Heaps</a></li>
+<li><a href="../articles/random-permutations.html">Random Permutations</a></li>
+<li><a href="../articles/debit-method.html">Debit Method</a></li>
+<li><a href="../articles/fun-with-morse-code.html">Fun with Morse Code</a></li>
+</ul>
+<div class="section">Haskell blog</div>
+<ul>
+  <li><a href='http://apfelmus.nfshost.com/blog/2014/01/29-frp-banana-0-8.html'>FRP - Release of reactive-banana version 0.8</a></li>
+  <li><a href='http://apfelmus.nfshost.com/blog/2013/11/21-threepenny-gui-0-4.html'>GUI - Release of the threepenny-gui library, version 0.4.0.0</a></li>
+  <li><a href='http://apfelmus.nfshost.com/blog/2013/09/07-threepenny-gui-0-3.html'>GUI - Release of the threepenny-gui library, version 0.3.0.0</a></li>
+  <li><a href='http://apfelmus.nfshost.com/blog/2013/08/21-space-invariants.html'>Reasoning about space leaks with space invariants</a></li>
+  <li><a href='http://apfelmus.nfshost.com/blog/2013/08/02-reactive-banana-threepenny.html'>FRP GUI - reactive-banana + threepenny-gui = awesome</a></li>
+  <li><a href='http://apfelmus.nfshost.com/blog/2013/07/21-threepenny-gui-0-1.html'>GUI - Initial release of the threepenny-gui library, version 0.1.0.0</a></li>
+  <li style="padding-top:2ex;"><a href="../blog.html">... all blog posts</a></li>
+</ul>
+</div>
+
+<div id="contents">
+<!-- -->
+<ul id="share">
+  <li>
+  <a href="http://www.reddit.com/r/haskell/submit?url=http://apfelmus.nfshost.com/articles/monoid-fingertree.html"><span class="left">comments? on reddit! </span><span class="right"><img src="http://www.reddit.com/static/spreddit5.gif" alt="submit to reddit" border="0" /></span></a>
+  
+    <li><span class="left">like it? flattr me! </span><span class="right"> <a class="FlattrButton" style="display:none;"
+        href="http://apfelmus.nfshost.com/articles/monoid-fingertree.html"
+        title="Monoids and Finger Trees"
+        rev="flattr;category:text;tags:monoid, finger tree, random access list, priority queue, Haskell, functional programming;"
+        >Explains how monoids enable one and the same tree data structure, the finger tree, to implement virtually any other data structures; they arise by different choices of monoids. The technique is discussed using the examples of a list with random access and a priority queue.</a></span>
+</ul>
+<!-- text contents -->
+<div id="text">
+<!-- title -->
+<h1 class="title">Monoids and Finger Trees</h1>
+<div id="toc"><div style="padding-bottom:2ex;">Table of contents</div>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#a-list-with-random-access">A list with random access</a></li>
+<li><a href="#a-priority-queue">A priority queue</a></li>
+<li><a href="#monoids---the-grand-unifier">Monoids - the grand unifier</a><ul>
+<li><a href="#annotations-are-monoids">Annotations are monoids</a></li>
+<li><a href="#search">Search</a></li>
+</ul></li>
+<li><a href="#where-to-go-from-here">Where to go from here</a></li>
+</ul>
+</div>
+<!-- body -->
+<p><em>This post grew out of the <a href="http://www.haskell.org/pipermail/haskell-cafe/2009-January/053539.html">big monoid discussion</a> on the <a href="http://www.haskell.org/haskellwiki/Mailing_lists">haskell-cafe</a> mailing list.</em></p>
+<h1 id="introduction"><a href="#introduction">Introduction</a></h1>
+<p>A very powerful application of monoids are <a href="http://www.soi.city.ac.uk/~ross/papers/FingerTree.html">2-3 finger trees</a>, first described by <a href="http://www.informatik.uni-bonn.de/~ralf/">Ralf Hinze</a> and <a href="http://www.soi.city.ac.uk/~ross/">Ross Patterson</a>.</p>
+<p>Basically, they allow you to write fast implementations for pretty much every abstract data type mentioned in <a href="http://www.cs.cmu.edu/~rwh/theses/okasaki.pdf" title="Purely Function Data Structures. (This is his thesis on which the book is based.)">Okasaki’s book</a> on purely functional data structures. For example, you can do sequences, priority queues, search trees and priority search queues. Moreover, any fancy and custom data structures like interval trees or something for stock trading are likely to be implementable in this framework as well.</p>
+<p>How can one tree be useful for so many different data structures? The answer: <em>monoids</em>! Namely, the finger tree works with elements that are related to a monoid, and all the different data structures mentioned above arise by different choices for this monoid.</p>
+<p>Let me explain how this monoid magic works.</p>
+<h1 id="a-list-with-random-access"><a href="#a-list-with-random-access">A list with random access</a></h1>
+<p>We begin with the simplest of all data structures, the linked list. As you well know, retrieving the <code>head</code> is fast but random access is much slower:</p>
+<pre><code>xs !! n</code></pre>
+<p>needs O(n) i.e. linear time to retrieve the n-th element of the list. We would like to create a faster list-like data structure that reduces this to O(log n) i.e. logarithmic time.</p>
+<p>For that, we use a binary tree that stores the elements <code>a</code> at the leaves. Furthermore, every node is annotated with a value of type <code>v</code></p>
+<pre><code>data Tree v a = Leaf   v a
+              | Branch v (Tree v a) (Tree v a)</code></pre>
+<p>In other words, our trees look like this</p>
+<pre><code>     v
+   /   \
+  v     v
+ / \   / \
+v  v  v   v
+a  a  a  / \
+        v   v
+        a   a</code></pre>
+<p>The leaves store the elements of our list from left to right.</p>
+<pre><code>toList :: Tree v a -&gt; [a]
+toList (Leaf _ a)     = [a]
+toList (Branch _ x y) = toList x ++ toList y</code></pre>
+<p>Annotations are fetched by</p>
+<pre><code>tag :: Tree v a -&gt; v
+tag (Leaf v _)     = v
+tag (Branch v _ _) = v</code></pre>
+<p>We can also implement the <code>head</code> operation which retrieves the leftmost element</p>
+<pre><code>head :: Tree v a -&gt; a
+head (Leaf _ a)     = a
+head (Branch _ x _) = head x</code></pre>
+<p>Ok, so accessing the 1st leaf was easy, how about the 2nd, 3rd, the n-th leaf?</p>
+<p>The solution is to annotate each subtree with its size.</p>
+<pre><code>type Size = Int</code></pre>
+<p>Our example tree has 5 leaves in total and the subtree on the right contains 3 leaves.</p>
+<pre><code>     5
+   /   \
+  2     3
+ / \   / \
+1  1  1   2
+a  a  a  / \
+        1   1
+        a   a</code></pre>
+<p>Thus, we set <code>v = Size</code> and we want the annotations to fulfill</p>
+<pre><code>tag (Leaf  ..)       = 1
+tag (Branch .. x y)  = tag x + tag y</code></pre>
+<p>We can make sure that they are always correct by using <em>smart constructors</em>: instead of using <code>Leaf</code> and <code>Branch</code> to create a tree, we use custom functions</p>
+<pre><code>leaf :: a -&gt; Tree Size a
+leaf a = Leaf 1 a
+
+branch :: Tree Size a -&gt; Tree Size a -&gt; Tree Size a
+branch x y = Branch (tag x + tag y) x y</code></pre>
+<p>which automatically annotate the right sizes.</p>
+<p>Given size annotations, we can now find the n-th leaf:</p>
+<pre><code>(!!) :: Tree Size a -&gt; Int -&gt; a
+(Leaf _ a)      !! 0 = a
+(Branch _ x y)  !! n 
+     | n &lt; tag x     = x !! n
+     | otherwise     = y !! (n - tag x)</code></pre>
+<p>And assuming that our tree is balanced, this will run in O(log n) time. But for now, let’s ignore balancing which would become relevant when implementing <code>cons</code> or <code>tail</code>.</p>
+<h1 id="a-priority-queue"><a href="#a-priority-queue">A priority queue</a></h1>
+<p>Let’s consider a different data structure, the priority queue. It stores items that have different “priorities” and always returns the most urgent one first. We represent priorities as integers and imagine them as points in time so the smallest ones are more urgent.</p>
+<pre><code>type Priority = Int</code></pre>
+<p>Once again, we use a binary tree. This time, we imagine it as a tournament tree, so that every subtree is annotated with the smallest priority it contains</p>
+<pre><code>     2
+   /   \
+  4     2
+ / \   / \
+16  4  2  8
+a   a  a / \
+        32  8
+        a   a</code></pre>
+<p>In other words, our annotations are to fulfill</p>
+<pre><code>tag (Leaf .. a)     = priority a
+tag (Branch .. x y) = tag x `min` tag y</code></pre>
+<p>with corresponding smart constructors. Given the tournament table, we can reconstruct the element that has the smallest priority in O(log n) time</p>
+<pre><code>winner :: Tree Priority a -&gt; a
+winner t = go t
+    where
+    go (Leaf _ a)        = a
+    go (Branch _ x y)
+        | tag x == tag t = go x   -- winner on left
+        | tag y == tag t = go y   -- winner on right</code></pre>
+<p>Again, we forgo balancing and thus insertion or deletion.</p>
+<h1 id="monoids---the-grand-unifier"><a href="#monoids---the-grand-unifier">Monoids - the grand unifier</a></h1>
+<p>As we can see, one and the same tree structure can be used for two quite different purposes, just by using different annotations. And by recognizing that the tags form a <em>monoid</em>, we can completely unify both implementations. Moreover, the retrieval operations <code>(!!)</code> and <code>winner</code> are actually special cases of <strong>one and the same</strong> function!</p>
+<p>For brevity, we will denote the associative operation of a monoid with <code>&lt;&gt;</code></p>
+<pre><code>(&lt;&gt;) = mappend</code></pre>
+<p>Think of the <code>&lt;&gt;</code> as a small diamond symbol.</p>
+<h2 id="annotations-are-monoids"><a href="#annotations-are-monoids">Annotations are monoids</a></h2>
+<p>The observation is that we obtain the tag of a branch by combining its children with the monoid operation</p>
+<pre><code>tag (Branch .. x y) = tag x &lt;&gt; tag y</code></pre>
+<p>of the following monoid instances</p>
+<pre><code>instance Monoid Size where
+    mempty  = 0
+    mappend = (+)
+
+instance Monoid Priority where
+    mempty  = maxBound
+    mappend = min</code></pre>
+<p>Hence, a unified smart constructor reads</p>
+<pre><code>branch :: Monoid v =&gt; Tree v a -&gt; Tree v a -&gt; Tree v a
+branch x y = Branch (x &lt;&gt; y) x y</code></pre>
+<p>For leaves, the tag is obtained from the element. We can capture this in a type class</p>
+<pre><code>class Monoid v =&gt; Measured a v where
+    measure :: a -&gt; v</code></pre>
+<p>so that the smart constructor reads</p>
+<pre><code>leaf :: Measured a v =&gt; a -&gt; Tree v a
+leaf a = Leaf (measure a) a</code></pre>
+<p>For our examples, the instances would be</p>
+<pre><code>instance Measured a Size where
+    measure _ = 1            -- one element = size 1
+
+instance Measure A Priority where
+    measure a = priority a   -- urgency of the element</code></pre>
+<p>How does the annotation at the top of a tree relate to the elements at the leaves? In our two examples, it was the total number of leaves and the least priority respectively. These values are <em>independent</em> of the actual shape of the tree. Thanks to the <em>associativity</em> of <code>&lt;&gt;</code>, this is true for any monoid. For instance, the two trees</p>
+<pre><code>(v1&lt;&gt;v2) &lt;&gt; (v3&lt;&gt;v4)         v1 &lt;&gt; (v2&lt;&gt;(v3&lt;&gt;v4))
+       /    \                  /  \
+      /      \               v1   v2 &lt;&gt; (v3&lt;&gt;v4)
+     /        \              a1     /  \
+ v1 &lt;&gt; v2  v3 &lt;&gt; v4               v2   v3 &lt;&gt; v4 
+   /  \      /  \                 a2     /  \
+  v1  v2    v3  v4                     v3   v4
+  a1  a2    a3  a4                     a3   a4</code></pre>
+<p>have the same annotations</p>
+<pre><code>(v1&lt;&gt;v2) &lt;&gt; (v3&lt;&gt;v4) = v1 &lt;&gt; (v2&lt;&gt;(v3&lt;&gt;v4)) = v1 &lt;&gt; v2 &lt;&gt; v3 &lt;&gt; v4</code></pre>
+<p>as long as the sequences of leaves are the same. In general, the tag at the root of a tree with <code>n</code> elements is</p>
+<pre><code>measure a1 &lt;&gt; measure a2 &lt;&gt; measure a3 &lt;&gt; ... &lt;&gt; measure an</code></pre>
+<p>While independent of the shape of the branching, i.e. on the placement of parenthesis, this may of course depend on the order of elements.</p>
+<p>It makes sense to refer to this combination of measures of all elements as the <code>measure</code> of the tree</p>
+<pre><code>instance Measured a v =&gt; Measured (Tree a v) v where
+    measure = tag</code></pre>
+<p>Thus, every tree is annotated with its <code>measure</code>.</p>
+<h2 id="search"><a href="#search">Search</a></h2>
+<p>Our efforts culminate in the unification of the two search algorithms <code>(!!)</code> and <code>winner</code>. They are certainly similar; at each node, they descend into one of the subtrees which is chosen depending on the annotations. But to see their exact equivalence, we have to ignore branches and grouping for now because this is exactly what associativity “abstracts away”.</p>
+<p>In a sequence of elements</p>
+<pre><code>a1 , a2 , a3 , a4 , ... , an</code></pre>
+<p>how to find say the 3rd one? Well, we scan the list from left to right and add 1 for each element encountered. As soon as the count exceeds 3, we have found the 3rd element.</p>
+<pre><code>1                -- is not &gt; 3
+1 + 1            -- is not &gt; 3  
+1 + 1 + 1        -- is not &gt; 3
+1 + 1 + 1 + 1    -- is &gt; 3
+...</code></pre>
+<p>Similarly, how to find the element of a least priority say <code>v</code>? Well, we can scan the list from left to right and keep track of the minimum priority so far. We have completed our search once it becomes equal to <code>v</code>.</p>
+<pre><code>v1                                -- still bigger than v
+v1 `min` v2                       -- still bigger than v
+v1 `min` v2 `min` v3              -- still bigger than v
+v1 `min` v2 `min` v3 `min` v4     -- equal to v!
+...</code></pre>
+<p>In general terms, we are looking for the position where a predicate <code>p</code> switches from <code>False</code> to <code>True</code>.</p>
+<pre><code>measure a1                                              -- not p
+measure a1 &lt;&gt; measure a2                                -- not p
+measure a1 &lt;&gt; measure a2 &lt;&gt; measure a3                  -- not p
+measure a1 &lt;&gt; measure a2 &lt;&gt; measure a3 &lt;&gt; measure a4    -- p
+...                                                     -- p</code></pre>
+<p>In other words, we are looking for the position <code>k</code> where</p>
+<pre><code>p (measure a1 &lt;&gt; ... &lt;&gt; measure ak)                    is  False
+p (measure a1 &lt;&gt; ... &lt;&gt; measure ak &lt;&gt; measure a(k+1))  is  True</code></pre>
+<p>The key point is that <code>p</code> does not test single elements but combinations of them, and this allows us to do binary search! Namely, how to find the element where <code>p</code> flips? Answer: divide the total <code>measure</code> into two halves</p>
+<pre><code>x &lt;&gt; y
+
+    x =       measure a1 &lt;&gt; ... &lt;&gt; measure a(n/2)
+    y = measure a(n/2+1) &lt;&gt; ... &lt;&gt; measure an</code></pre>
+<p>If <code>p</code> is <code>True</code> on the first half, then we have to look there for the flip, otherwise we have to search the second half. In the latter case, we would have to split <code>y = y1 &lt;&gt; y2</code> and test <code>p (x &lt;&gt; y1)</code>.</p>
+<p>In the case of our data structures, the tree shape determines how the <code>measure</code> is split into parts at each step. Here is the full procedure</p>
+<pre><code>search :: Measured a v =&gt; (v -&gt; Bool) -&gt; Tree v a -&gt; Maybe a
+search p t
+    | p (measure t) = Just (go mempty p t)
+    | otherwise     = Nothing
+    where
+    go i p (Leaf _ a) = a
+    go i p (Branch _ l r)
+        | p (i &lt;&gt; measure l) = go i p l
+        | otherwise          = go (i &lt;&gt; measure l) p r</code></pre>
+<p>Since we have annotated each branch with its <code>measure</code>, testing <code>p</code> takes no time at all.</p>
+<p>Of course, this algorithm only works if <code>p</code> really does flip from <code>False</code> to <code>True</code> exactly once. This is the case if <code>p</code> fulfills</p>
+<pre><code>p (x)  implies  p (x &lt;&gt; y)   for all y</code></pre>
+<p>and we say that <code>p</code> is a <em>monotonic</em> predicate. Our two examples <code>(&gt; 3)</code> and <code>(== minimum)</code> have this property and thus, we can finally conclude with</p>
+<pre><code>t !! k   = search (&gt; k)
+winner t = search (== measure t)</code></pre>
+<h1 id="where-to-go-from-here"><a href="#where-to-go-from-here">Where to go from here</a></h1>
+<p>I hope you have enjoyed this excursion into the land of trees and monoids. If you want to stay a bit longer, implement a data structure that do both look up the <code>k</code>-th element and retrieve the element with the least priority at the same time. This is also known as <em>priority search queue</em>.</p>
+<p>If you still long for more, the <a href="http://www.soi.city.ac.uk/~ross/papers/FingerTree.html">finger tree paper</a> knows the way; I have tried to closely match their notation. In particular, they solve the balancing issue which turns the binary search on monoids into a truly powerful tool to construct about any fancy data structure with logarithmic access times you can imagine.</p>
+</div>
+<div id="footer">Heinrich Apfelmus<br/>20 Jan 2009 11:49:33 +0100</div>
+<!-- DISQUS -->
+</div>
+<!-- DISQUS again -->
+</body>
+</html>
