@@ -241,9 +241,9 @@ Basic Types
 > i = -78
 
 `Int`s are guaranteed by the Haskell language standard to accommodate
-values at least up to \\(\\pm 2^{29}\\), but the exact size depends on
+values at least up to 2^29^, but the exact size depends on
 your architecture.  For example, on my 64-bit machine the range is
-\\(\\pm 2^{63}\\). You can find the range on your machine by
+2^63^. You can find the range on your machine by
 evaluating the following:
 
 > biggestInt, smallestInt :: Int
