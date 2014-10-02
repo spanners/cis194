@@ -18,6 +18,8 @@ We can use the `@` sign in patterns to create a definition for the whole value b
 > baz :: Person -> String
 > baz p@(Person n _ _) = "The name field of (" ++ show p ++ ") is " ++ n
 
+Result:
+
 ````
 *ghci> baz brent
 "The name field of (Person "Brent" 31 SealingWax) is Brent"
