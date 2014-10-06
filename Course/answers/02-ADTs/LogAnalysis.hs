@@ -23,19 +23,21 @@ bar :: [String] -> Int
 bar = read . head . tail
 
 baz :: [String] -> String
-baz = unwords . tail . tail
+baz = unwords . drop 2
 
 parse :: String -> [LogMessage]
 parse = map parseMessage . lines
 
 insert :: LogMessage -> MessageTree -> MessageTree
-insert (Unknown _) t = t
-insert msg Leaf = Node Leaf msg Leaf
-insert msg (Node l lm r) | getLevel msg < getLevel lm  = Node (insert msg l) lm r
-                         | getLevel msg >= getLevel lm = Node l lm (insert msg r)
+insert (Unknown _)            t                                           = t
+insert msg@(LogMessage _ _ _) Leaf                                        = Node Leaf msg Leaf
+insert msg@(LogMessage _ _ _) (Node l lm r) | getLevel msg < getLevel lm  = Node (insert msg l) lm r
+                                            | getLevel msg >= getLevel lm = Node l lm (insert msg r)
+insert (LogMessage _ _ _)     (Node _ _ _)                                = error "Fell off the face of the earth"
 
 getLevel :: LogMessage -> Int
 getLevel (LogMessage _ l _) = l
+getLevel (Unknown _) = error "LogMessage Unknown has no level"
 
 build :: [LogMessage] -> MessageTree
 build = foldr insert Leaf
