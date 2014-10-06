@@ -45,3 +45,6 @@ build = foldr insert Leaf
 inOrder :: MessageTree -> [LogMessage]
 inOrder Leaf = []
 inOrder (Node l lm r) = inOrder l ++ [lm] ++ inOrder r
+
+whatWentWrong :: [LogMessage] -> [String]
+whatWentWrong = map show . filter ((>50) . getLevel) 
