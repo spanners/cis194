@@ -3,6 +3,7 @@
 module LogAnalysis where
 
 import Log
+import Safe (headMay, readMay)
 
 parseMessage :: String -> LogMessage
 parseMessage m = parseHelper $ words m
@@ -13,8 +14,13 @@ parseHelper [_] = Unknown ""
 parseHelper wrds@(x:y:ys) = case x of
     "I" -> LogMessage Info (read y) (unwords ys)
     "W" -> LogMessage Warning (read y) (unwords ys)
-    "E" -> LogMessage (Error $ read y) (read $ head ys) (unwords $ drop 1 ys)
+    "E" -> case (parseLevel ys) of
+             Just n -> LogMessage (Error $ read y) n (unwords $ drop 1 ys)
+             Nothing -> Unknown $ unwords wrds
     _   -> Unknown $ unwords wrds
+
+parseLevel :: [String] -> Maybe Int
+parseLevel = (readMay =<<) . headMay
 
 parse :: String -> [LogMessage]
 parse = map parseMessage . lines
