@@ -8,15 +8,13 @@ parseMessage :: String -> LogMessage
 parseMessage m = parseHelper $ words m
 
 parseHelper :: [String] -> LogMessage
-parseHelper wrds = case (head wrds) of
-    "I" -> LogMessage Info               (lvl wrds)        (msg wrds)
-    "W" -> LogMessage Warning            (lvl wrds)        (msg wrds)
-    "E" -> LogMessage (Error $ lvl wrds) (lvl $ tail wrds) (msg $ tail wrds)
+parseHelper [] = Unknown ""
+parseHelper [_] = Unknown ""
+parseHelper wrds@(x:y:ys) = case x of
+    "I" -> LogMessage Info (read y) (unwords ys)
+    "W" -> LogMessage Warning (read y) (unwords ys)
+    "E" -> LogMessage (Error $ read y) (read $ head ys) (unwords $ drop 1 ys)
     _   -> Unknown $ unwords wrds
-  where lvl :: [String] -> Int
-        lvl = read . head . tail
-        msg :: [String] -> String
-        msg = unwords . drop 2
 
 parse :: String -> [LogMessage]
 parse = map parseMessage . lines
