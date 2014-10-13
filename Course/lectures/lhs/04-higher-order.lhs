@@ -133,8 +133,8 @@ just a "pipeline" composed of three smaller functions.  This example
 also demonstrates why function composition seems "backwards": it's
 because function application is backwards!  Since we read from left to
 right, it would make sense to think of values as also flowing from
-left to right.  But in that case we should write \\( (x)f \\) to
-denote giving the value \\(x\\) as an input to the function \\(f\\).
+left to right.  But in that case we should write `((x)f)` to
+denote giving the value `(x)` as an input to the function `(f)`.
 But no thanks to Alexis Claude Clairaut and Euler, we have been stuck
 with the backwards notation since 1734.
 
