@@ -4,24 +4,25 @@
 module Histogram where
 
 import Data.Map (toList, fromListWith)
-import Data.List (maximumBy)
+import Data.List (maximumBy, transpose, intersperse)
 
-nearlyThere :: [Integer] -> [String]
-nearlyThere = addNewlines . doThat . doIt
+histogram :: [Integer] -> String
+histogram xs = helper xs ++ "\n=========\n123456789"
 
-doThat :: forall a. [([a], [a])] -> [[a]]
-doThat = map (\(a,b) -> a ++ b)
+helper :: [Integer] -> String
+helper = concat . addNewlines . transpose . conc . addPad
 
-doIt :: [Integer] -> [(String, String)]
-doIt bar = zip (skim $ histogram bar) (histogram bar)
+conc :: forall a. [([a], [a])] -> [[a]]
+conc = map (\(a,b) -> a ++ b)
 
-skim :: [String] -> [String]
-skim foo = map (concat . (\i -> replicate (abs $ len foo - length i) " ")) foo
--- GHCi> zip (map (\i -> concat $ replicate (abs $ len bar - length i) " \n") bar) bar
--- > [("","aaa"),(" \n","bb"),(" \n \n","c")]
+addPad :: [Integer] -> [(String, String)]
+addPad xs = zip (pad $ freqDist xs) (freqDist xs)
+
+pad :: [String] -> [String]
+pad columns = map (concat . (\i -> replicate (abs $ len columns - length i) " ")) columns
 
 addNewlines :: [String] -> [String]
-addNewlines = map (intersperseString "\n")
+addNewlines = intersperse "\n"
 
 intersperseString :: forall b. [b] -> [b] -> [b]
 intersperseString = ((=<<) . flip (:))
@@ -35,8 +36,8 @@ maxFst = maximumBy (\a b -> if fst a > fst b then GT else LT)
 zipLengths :: [String] -> [(Int, String)]
 zipLengths xs = zip (map length xs) xs
 
-histogram :: [Integer] -> [String]
-histogram = map tower . freq
+freqDist :: [Integer] -> [String]
+freqDist = map tower . freq
 
 freq :: forall k a. (Ord k, Num a) => [k] -> [(k, a)]
 freq input = toList $ fromListWith (+) [(c, 1) | c <- input]
@@ -44,7 +45,7 @@ freq input = toList $ fromListWith (+) [(c, 1) | c <- input]
 -- IDEA: don't build the tower here, instead do it as the last step and use
 -- `Data.List.intercalate`
 tower :: (a, Integer) -> String
-tower (_, frq) = concat ["*" | _ <- [0..frq]]
+tower (_, frq) = concat ["*" | _ <- [1..frq]]
 
 main :: IO ()
 main = undefined
