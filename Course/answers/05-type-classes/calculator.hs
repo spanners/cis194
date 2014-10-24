@@ -13,3 +13,7 @@ eval (Add x y) = eval x + eval y
 
 evalStr :: String -> Maybe Integer
 evalStr s = eval <$> parseExp Lit Add Mul s
+
+class Expr a where
+  lit :: a -> ExprT
+  add, mul :: a -> a -> ExprT
