@@ -1,3 +1,4 @@
+{-# LANGUAGE GeneralizedNewtypeDeriving, TypeSynonymInstances, FlexibleInstances #-}
 {-# OPTIONS_GHC -Wall #-}
 
 module Calculator where
@@ -35,3 +36,16 @@ instance Expr Bool where
     lit = (>0)
     add = (||)
     mul = (&&)
+
+newtype Mod7 = Mod7 Integer deriving (Eq, Show, Enum, Ord, Real, Integral, Num)
+newtype MinMax = MinMax Integer deriving (Eq, Show, Ord)
+
+instance Expr MinMax where
+    lit = MinMax
+    add = min
+    mul = max
+
+instance Expr Mod7 where
+    lit = Mod7
+    add i j = (i + j) `mod` 7
+    mul i j = (i * j) `mod` 7
