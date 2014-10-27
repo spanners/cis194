@@ -33,7 +33,7 @@ instance Expr Integer where
     mul = (*)
 
 instance Expr Bool where
-    lit = (>0)
+    lit = (<0)
     add = (||)
     mul = (&&)
 
@@ -49,3 +49,19 @@ instance Expr Mod7 where
     lit = Mod7
     add i j = (i + j) `mod` 7
     mul i j = (i * j) `mod` 7
+
+
+testExp :: Expr a => Maybe a
+testExp = parseExp lit add mul "(3 * -4) + 5"
+
+testInteger :: Maybe Integer
+testInteger = testExp
+
+testBool :: Maybe Bool
+testBool = testExp
+
+testMM :: Maybe MinMax
+testMM = testExp 
+
+testSat :: Maybe Mod7
+testSat = testExp
