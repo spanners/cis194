@@ -3,16 +3,17 @@
 
 module Calculator where
 
-import ExprT(ExprT(..))
-import Parser(parseExp)
+import ExprT as E
+import Parser (parseExp)
+import StackVM as S
 
 eval :: ExprT -> Integer
-eval (Lit n)   = n
-eval (Mul x y) = eval x * eval y
-eval (Add x y) = eval x + eval y
+eval (E.Lit n)   = n
+eval (E.Mul x y) = eval x * eval y
+eval (E.Add x y) = eval x + eval y
 
 evalStr :: String -> Maybe Integer
-evalStr = fmap eval . parseExp Lit Add Mul
+evalStr = fmap eval . parseExp E.Lit E.Add E.Mul
 
 class Expr a where
     lit :: Integer -> a
@@ -20,9 +21,9 @@ class Expr a where
     add :: a -> a -> a
 
 instance Expr ExprT where
-    lit = Lit
-    add = Add
-    mul = Mul
+    lit = E.Lit
+    add = E.Add
+    mul = E.Mul
 
 reify :: ExprT -> ExprT
 reify = id
@@ -65,3 +66,14 @@ testMM = testExp
 
 testSat :: Maybe Mod7
 testSat = testExp
+
+instance Expr Program where
+    lit a   = [S.PushI a]
+    add a b = a ++ b ++ [S.Mul]
+    mul a b = a ++ b ++ [S.Add]
+
+compile :: String -> Maybe S.Program
+compile = parseExp lit add mul
+
+evalCode :: String -> Maybe (Either String S.StackVal)
+evalCode = fmap stackVM . parseExp lit add mul
