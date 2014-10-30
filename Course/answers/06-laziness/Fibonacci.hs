@@ -45,8 +45,8 @@ streamZipWith ∷ (a → b → c) → Stream a → Stream b → Stream c
 streamZipWith f (SCons x xs) (SCons y ys) = SCons (f x y) (streamZipWith f xs ys)
 
 instance Num (Stream Integer) where
-    fromInteger n                    = SCons n (streamRepeat 0)
-    negate                           = streamMap negate
-    (+)                              = streamZipWith (+)
-    (*) (SCons x xs) s2@(SCons y ys) = SCons (x * y) ((streamMap (* x) ys) + (xs * s2))
-
+    fromInteger n = SCons n (streamRepeat 0)
+    negate        = streamMap negate
+    (+)           = streamZipWith (+)
+    (*) (SCons x xs) s2@(SCons y ys) 
+                  = SCons (x * y) (streamMap (* x) ys + (xs * s2))
