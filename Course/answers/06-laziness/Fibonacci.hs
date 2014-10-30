@@ -1,3 +1,4 @@
+{-# LANGUAGE FlexibleInstances #-}
 {-# OPTIONS_GHC -Wall #-}
 
 module Fibonacci where
@@ -29,3 +30,22 @@ streamFromSeed f x = SCons (f x) (streamFromSeed f (f x))
 
 nats :: Stream Integer
 nats = streamFromSeed (+1) (-1)
+
+interleaveStreams :: Stream a -> Stream a -> Stream a
+interleaveStreams (SCons x s1) s2 = SCons x (interleaveStreams s2 s1)
+
+ruler :: Stream Integer
+ruler = foldr1 interleaveStreams (map streamRepeat [0..])
+
+x' :: Stream Integer
+x' = SCons 0 (SCons 1 (streamRepeat 0))
+
+streamZipWith :: (a -> b -> c) -> Stream a -> Stream b -> Stream c
+streamZipWith f (SCons x xs) (SCons y ys) = SCons (f x y) (streamZipWith f xs ys)
+
+instance Num (Stream Integer) where
+    fromInteger n = SCons n (streamRepeat 0)
+    negate        = streamMap negate
+    (+)           = streamZipWith (+)
+    (*)           = streamZipWith (*) -- incorrect
+
