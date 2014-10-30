@@ -50,3 +50,10 @@ instance Num (Stream Integer) where
     (+)           = streamZipWith (+)
     (*) (SCons x xs) s2@(SCons y ys) 
                   = SCons (x * y) (streamMap (* x) ys + (xs * s2))
+
+instance Fractional (Stream Integer) where
+    (/) (SCons a₀ a') (SCons b₀ b') = q
+      where q = SCons (a₀ `div` b₀) (streamMap (`div` b₀) (a' - q*b'))
+
+fibs3 ∷ Stream Integer
+fibs3 = x' / (1 - x' - x'*x')
