@@ -9,6 +9,7 @@
 > import Data.Ord (comparing)
 > import Data.Function (on)
 > import Data.Colour.SRGB (sRGB24read)
+> import Diagrams.Backend.SVG.CmdLine
 >
 > colors ∷ forall b. (Ord b, Floating b) ⇒ [Colour b]
 > colors = map sRGB24read["#000000", "#D1DBBD", "#91AA9D", "#3E606F", "#193441", "#000000"]
@@ -110,3 +111,5 @@ lower boundary of the other.
 >             Semigroup m) ⇒
 >            QDiagram b R2 m
 > example = pad 1.1 $ hasseDiagram 4
+>
+> main = defaultMain (hasseDiagram 5)
