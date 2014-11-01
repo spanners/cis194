@@ -61,7 +61,12 @@ fibs2 = x' / (1 - x' - x'*x')
 data Matrix = Matrix Integer Integer Integer Integer deriving Show
 
 instance Num Matrix where
-    (*) (Matrix a₁₁ a₁₂ a₂₁ a₂₂) (Matrix b₁₁ b₁₂ b₂₁ b₂₂) = (Matrix (a₁₁*b₁₁ + a₁₂*b₂₁) (a₁₁*b₁₂ + a₁₂*b₂₂) (a₂₁*b₁₁ + a₂₂*b₂₁) (a₂₁*b₁₂ + a₂₂*b₂₂))
+    (*) (Matrix a₁₁ a₁₂ 
+                a₂₁ a₂₂) 
+        (Matrix b₁₁ b₁₂ 
+                b₂₁ b₂₂) 
+          = (Matrix (a₁₁*b₁₁ + a₁₂*b₂₁) (a₁₁*b₁₂ + a₁₂*b₂₂) 
+                    (a₂₁*b₁₁ + a₂₂*b₂₁) (a₂₁*b₁₂ + a₂₂*b₂₂))
 
 fib2 ∷ Integer → Integer
 fib2 0 = 0
