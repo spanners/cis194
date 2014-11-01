@@ -1,4 +1,5 @@
 > {-# LANGUAGE NoMonomorphismRestriction #-}
+> {-# LANGUAGE UnicodeSyntax #-}
 > {-# LANGUAGE FlexibleContexts #-}
 > {-# LANGUAGE RankNTypes #-}
 > {-# LANGUAGE GADTs #-}
@@ -9,7 +10,7 @@
 > import Data.Function (on)
 > import Data.Colour.SRGB (sRGB24read)
 >
-> colors :: forall b. (Ord b, Floating b) => [Colour b]
+> colors ∷ forall b. (Ord b, Floating b) ⇒ [Colour b]
 > colors = map sRGB24read["#000000", "#D1DBBD", "#91AA9D", "#3E606F", "#193441", "#000000"]
 
 A subset is represented by the size of the parent set paired with the
@@ -19,10 +20,10 @@ size `n`, grouped according to size.
 
 > data Subset = Subset Int [Int]
 >
-> isSubset :: Subset -> Subset -> Bool
+> isSubset ∷ Subset → Subset → Bool
 > (Subset _ elts1) `isSubset` (Subset _ elts2) = all (`elem` elts2) elts1
 >
-> subsetsBySize :: Int -> [[Subset]]
+> subsetsBySize ∷ Int → [[Subset]]
 > subsetsBySize n = map (map (Subset n))
 >                 . groupBy ((==) `on` length)
 >                 . sortBy (comparing length)
@@ -32,20 +33,20 @@ size `n`, grouped according to size.
 Draw the elements of a subset, by drawing a colored square for each
 element present, and leaving a blank space for absent elements.
 
-> drawElts :: forall b m.
+> drawElts ∷ forall b m.
 >             (Monoid m, Backend b R2, TrailLike (QDiagram b R2 m),
->              Semigroup m) =>
->             Int -> [Int] -> QDiagram b R2 m
+>              Semigroup m) ⇒
+>             Int → [Int] → QDiagram b R2 m
 > drawElts n elts = hcat
->                 . map (\i -> if i `elem` elts
+>                 . map (\i → if i `elem` elts
 >                                then drawElt i
 >                                else strutX 1
 >                       )
 >                 $ [1..n]
 >
-> drawElt :: forall b.
->            (HasStyle b, TrailLike b, V b ~ R2) =>
->            Int -> b
+> drawElt ∷ forall b.
+>            (HasStyle b, TrailLike b, V b ~ R2) ⇒
+>            Int → b
 > drawElt e = unitSquare # fc (colors !! e) # lw thin
 
 Draw a subset by drawing a dashed rectangle around the elements.  Note
@@ -53,10 +54,10 @@ that we also assign a name to the rectangle, corresponding to the
 elements it contains, which we use to draw connections between subsets
 later.
 
-> drawSet :: forall b m.
+> drawSet ∷ forall b m.
 >            (Monoid m, Backend b R2, TrailLike (QDiagram b R2 m),
->             Semigroup m) =>
->            Subset -> QDiagram b R2 m
+>             Semigroup m) ⇒
+>            Subset → QDiagram b R2 m
 > drawSet (Subset n elts) = (    drawElts n elts # centerXY
 >                             <> rect (fromIntegral n + 0.5) 1.5
 >                                  # dashingG [0.2,0.2] 0
@@ -69,16 +70,16 @@ connecting each set to its subsets in the row below.  [See the user
 manual](http://projects.haskell.org/diagrams/manual/diagrams-manual.html#named-subdiagrams)
 for a more in-depth explanation of how names are used to connect subsets.
 
-> hasseRow :: forall b m.
+> hasseRow ∷ forall b m.
 >             (Monoid m, Backend b R2, TrailLike (QDiagram b R2 m),
->              Semigroup m) =>
->             [Subset] -> QDiagram b R2 m
+>              Semigroup m) ⇒
+>             [Subset] → QDiagram b R2 m
 > hasseRow = centerX . hcat' (with & sep .~ 2) . map drawSet
 >
-> hasseDiagram :: forall b m.
+> hasseDiagram ∷ forall b m.
 >                 (Monoid m, Backend b R2, TrailLike (QDiagram b R2 m),
->                  Semigroup m) =>
->                 Int -> QDiagram b R2 m
+>                  Semigroup m) ⇒
+>                 Int → QDiagram b R2 m
 > hasseDiagram n = setsD # drawConnections # centerXY
 >   where setsD = vcat' (with & sep .~ fromIntegral n)
 >               . map hasseRow
@@ -101,11 +102,11 @@ elements, and drawing a line from the upper boundary of one to the
 lower boundary of the other.
 
 >         connect'' (Subset _ elts1) (Subset _ elts2) =
->           withNames [elts1, elts2] $ \[b1, b2] ->
+>           withNames [elts1, elts2] $ \[b1, b2] →
 >             beneath ((boundaryFrom b1 unitY ~~ boundaryFrom b2 unit_Y) # lw thin)
 >
-> example :: forall b m.
+> example ∷ forall b m.
 >            (Monoid m, Backend b R2, TrailLike (QDiagram b R2 m),
->             Semigroup m) =>
+>             Semigroup m) ⇒
 >            QDiagram b R2 m
 > example = pad 1.1 $ hasseDiagram 4
