@@ -18,8 +18,8 @@ instance Buffer String where
   numLines     = length . lines
   value        = length . words
 
-(!?) :: Int -> [a] -> Maybe a
+(!?) :: [a] -> Int -> Maybe a
 _      !? n | n < 0 = Nothing
 []     !? _         = Nothing
 (x:_)  !? 0         = Just x
-(_:xs) !? n         = safeIndex (n-1) xs
+(_:xs) !? n         = xs !? (n-1)
