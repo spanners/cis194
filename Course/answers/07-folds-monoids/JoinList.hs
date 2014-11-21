@@ -48,14 +48,16 @@ jlToList Empty            = []
 jlToList (Single _ a)     = [a]
 jlToList (Append _ l1 l2) = jlToList l1 ++ jlToList l2
 
-instance Arbitrary (JoinList m a) where
+--help! I need to write one of these
+-- instance Arbitrary (JoinList m a) where
+--     arbitrary = ...
     
-
-prop_indexJ :: (Monoid m, Sized m, Eq a) => Int -> JoinList m a -> Bool
-prop_indexJ i jl = (indexJ i jl) == (jlToList jl !? i)
+--to test this:
+-- prop_indexJ :: (Monoid m, Sized m, Eq a) => Int -> JoinList m a -> Bool
+-- prop_indexJ i jl = (indexJ i jl) == (jlToList jl !? i)
 
 runTests :: IO Bool
 runTests = $(quickCheckAll)
 
--- main :: IO Bool
-main = quickCheck prop_indexJ
+main :: IO Bool
+main = runTests
