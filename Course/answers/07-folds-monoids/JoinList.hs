@@ -24,8 +24,8 @@ tag (Append m _ _) = m
 (+++) :: Monoid m => JoinList m a -> JoinList m a -> JoinList m a
 jl1 +++ jl2 = Append (tag jl1 `mappend` tag jl2) jl1 jl2
 
-sample :: JoinList (Product Integer) Char
-sample = Append (Product 210)
+example :: JoinList (Product Integer) Char
+example = Append (Product 210)
            (Append (Product 30)
              (Single (Product 5) 'y')
              (Append (Product 6)
@@ -53,6 +53,8 @@ jlToList (Append _ l1 l2) = jlToList l1 ++ jlToList l2
 instance (Alternative Gen, Arbitrary m, Monoid m, Sized m, Arbitrary a)  => Arbitrary (JoinList m a) where
     arbitrary = pure Empty <|>  (Single <$> arbitrary <*> arbitrary) <|> ((+++) <$> arbitrary <*> arbitrary)
     
+-- sample (arbitrary :: (Alternative Gen, Arbitrary m, Sized m, Monoid m, Arbitrary a) => Gen (JoinList m a))
+
 --to test this:
 --prop_indexJ :: (Alternative Gen, Monoid m, Sized m, Eq a) => Int -> JoinList m a -> Bool
 --prop_indexJ i jl = (indexJ i jl) == (jlToList jl !? i)
