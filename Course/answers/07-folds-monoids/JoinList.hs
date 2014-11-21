@@ -1,9 +1,11 @@
 {-# OPTIONS_GHC -Wall #-}
 {-# LANGUAGE TemplateHaskell #-}
+{-# LANGUAGE FlexibleContexts #-}
 
 module JoinList where
 
 import Data.Monoid
+import Control.Applicative
 import Sized
 import StringBuffer ((!?))
 import Test.QuickCheck
@@ -48,13 +50,12 @@ jlToList Empty            = []
 jlToList (Single _ a)     = [a]
 jlToList (Append _ l1 l2) = jlToList l1 ++ jlToList l2
 
---help! I need to write one of these
--- instance Arbitrary (JoinList m a) where
---     arbitrary = ...
+instance (Alternative Gen, Arbitrary m, Monoid m, Sized m, Arbitrary a)  => Arbitrary (JoinList m a) where
+    arbitrary = pure Empty <|>  (Single <$> arbitrary <*> arbitrary) <|> ((+++) <$> arbitrary <*> arbitrary)
     
 --to test this:
--- prop_indexJ :: (Monoid m, Sized m, Eq a) => Int -> JoinList m a -> Bool
--- prop_indexJ i jl = (indexJ i jl) == (jlToList jl !? i)
+--prop_indexJ :: (Alternative Gen, Monoid m, Sized m, Eq a) => Int -> JoinList m a -> Bool
+--prop_indexJ i jl = (indexJ i jl) == (jlToList jl !? i)
 
 runTests :: IO Bool
 runTests = $(quickCheckAll)
