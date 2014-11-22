@@ -52,7 +52,8 @@ jlToList (Single _ a)     = [a]
 jlToList (Append _ l1 l2) = jlToList l1 ++ jlToList l2
 
 instance (Arbitrary m, Sized m, Monoid m, Arbitrary a, Eq a) => Arbitrary (JoinList m a) where
-    arbitrary = oneof [ Single <$> arbitrary <*> arbitrary
+    arbitrary = oneof [ pure Empty
+                      , Single <$> arbitrary <*> arbitrary
                       , Append <$> arbitrary <*> arbitrary <*> arbitrary 
                       ] 
 -- sample (arbitrary :: (Arbitrary m, Sized m, Monoid m, Arbitrary a, Eq a) => Gen (JoinList m a))
