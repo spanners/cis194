@@ -15,6 +15,9 @@ class Sized a where
 instance Sized Size where
   size = id
 
+instance Sized Integer where
+  size = fromIntegral
+
 -- This instance means that things like
 --   (Foo, Size)
 --   (Foo, (Bar, Size))
@@ -25,4 +28,8 @@ instance Sized b => Sized (a,b) where
 
 instance Monoid Size where
   mempty  = Size 0
+  mappend = (+)
+
+instance Monoid Integer where
+  mempty = 0
   mappend = (+)

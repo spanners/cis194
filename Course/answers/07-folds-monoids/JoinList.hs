@@ -1,6 +1,7 @@
 {-# OPTIONS_GHC -Wall #-}
 {-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE NoMonomorphismRestriction #-}
 
 module JoinList where
 
@@ -50,14 +51,16 @@ jlToList Empty            = []
 jlToList (Single _ a)     = [a]
 jlToList (Append _ l1 l2) = jlToList l1 ++ jlToList l2
 
-instance (Alternative Gen, Arbitrary m, Monoid m, Sized m, Arbitrary a)  => Arbitrary (JoinList m a) where
-    arbitrary = pure Empty <|>  (Single <$> arbitrary <*> arbitrary) <|> ((+++) <$> arbitrary <*> arbitrary)
-    
--- sample (arbitrary :: (Alternative Gen, Arbitrary m, Sized m, Monoid m, Arbitrary a) => Gen (JoinList m a))
+instance (Arbitrary m, Sized m, Monoid m, Arbitrary a, Eq a) => Arbitrary (JoinList m a) where
+    arbitrary = oneof [ Single <$> arbitrary <*> arbitrary
+                      , Append <$> arbitrary <*> arbitrary <*> arbitrary 
+                      ] 
+-- sample (arbitrary :: (Arbitrary m, Sized m, Monoid m, Arbitrary a, Eq a) => Gen (JoinList m a))
+
 
 --to test this:
---prop_indexJ :: (Alternative Gen, Monoid m, Sized m, Eq a) => Int -> JoinList m a -> Bool
---prop_indexJ i jl = (indexJ i jl) == (jlToList jl !? i)
+prop_indexJ :: (Arbitrary m, Sized m, Monoid m, Arbitrary a, Eq a) => Int -> JoinList m a -> Bool
+prop_indexJ i jl = (indexJ i jl) == (jlToList jl !? i)
 
 runTests :: IO Bool
 runTests = $(quickCheckAll)
