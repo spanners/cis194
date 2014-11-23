@@ -7,6 +7,7 @@ module JoinList where
 
 import Data.Monoid
 import Control.Applicative
+import Control.Monad
 import Sized
 import StringBuffer ((!?))
 import Test.QuickCheck
@@ -52,14 +53,16 @@ jlToList (Single _ a)     = [a]
 jlToList (Append _ l1 l2) = jlToList l1 ++ jlToList l2
 
 instance (Arbitrary m, Sized m, Monoid m, Arbitrary a, Eq a) => Arbitrary (JoinList m a) where
-    arbitrary = oneof [ pure Empty
-                      , Single <$> arbitrary <*> arbitrary
-                      , Append <$> arbitrary <*> arbitrary <*> arbitrary 
+    arbitrary = sized joinList'
+      where joinList' 0       = pure Empty
+            joinList' n | n>0 = 
+                oneof [ liftM2 Single arbitrary arbitrary
+                      , liftM3 Append arbitrary subList subList
                       ] 
+                  where subList = joinList' (n `div` 2)
+
 -- sample (arbitrary :: (Arbitrary m, Sized m, Monoid m, Arbitrary a, Eq a) => Gen (JoinList m a))
 
-
---to test this:
 prop_indexJ :: (Arbitrary m, Sized m, Monoid m, Arbitrary a, Eq a) => Int -> JoinList m a -> Bool
 prop_indexJ i jl = (indexJ i jl) == (jlToList jl !? i)
 
