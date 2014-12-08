@@ -1,18 +1,9 @@
 {-# OPTIONS_GHC -Wall #-}
-{-# LANGUAGE TemplateHaskell #-}
-{-# LANGUAGE FlexibleContexts #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE NoMonomorphismRestriction #-}
 
 module JoinList where
 
 import Data.Monoid
-import Control.Applicative
-import Control.Monad
 import Sized
-import StringBuffer ((!?))
-import Test.QuickCheck
-import Test.QuickCheck.All
 
 data JoinList m a = Empty
     | Single m a
@@ -39,37 +30,16 @@ example = Append (Product 210)
 sizeJ :: (Sized b, Monoid b) => JoinList b a -> Int
 sizeJ = getSize . size . tag
 
--- I am starting to think that this definition must be wrong.
 indexJ :: (Sized b, Monoid b) => Int -> JoinList b a -> Maybe a
-indexJ _ Empty             = Nothing
-indexJ i _  | i < 0        = Nothing
-indexJ i jl | i > sizeJ jl = Nothing
-indexJ _ (Single _ a)      = Just a
-indexJ i (Append _ l r) 
-    | i < sizeJ l          = indexJ i l
-    | otherwise            = indexJ (i - sizeJ l) r
+indexJ _ Empty        = Nothing
+indexJ 0 (Single _ a) = Just a
+indexJ _ (Single _ _) = Nothing
+indexJ n node@(Append _ jll jlr)
+  | n >= sizeJ node = Nothing
+  | n >= sizeJ jll  = indexJ (n - sizeJ jll) jlr
+  | otherwise       = indexJ n jll
 
 jlToList :: JoinList m a -> [a]
 jlToList Empty            = []
 jlToList (Single _ a)     = [a]
 jlToList (Append _ l1 l2) = jlToList l1 ++ jlToList l2
-
-instance Arbitrary (JoinList (Sum Integer) Char) where
-    arbitrary = sized joinList'
-      where joinList' 0       = pure Empty
-            joinList' n | n>0 = 
-                oneof [ liftM2 Single (pure (Sum (fromIntegral n))) arbitrary
-                      , liftM3 Append (pure (Sum (fromIntegral n))) subList subList 
-                      ] 
-                  where subList = joinList' (n - 1)
-
-getSample = sample (arbitrary :: Gen (JoinList (Sum Integer) Char))
-
-prop_indexJ :: Int -> JoinList (Sum Integer) Char -> Bool
-prop_indexJ i jl = (indexJ i jl) == (jlToList jl !? i)
-
-runTests :: IO Bool
-runTests = $(quickCheckAll)
-
-main :: IO Bool
-main = runTests
