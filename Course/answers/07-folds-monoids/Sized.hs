@@ -18,6 +18,9 @@ instance Sized Size where
 instance Sized Integer where
   size = fromIntegral
 
+instance Sized (Sum Integer) where
+  size (Sum a) = fromIntegral a
+
 -- This instance means that things like
 --   (Foo, Size)
 --   (Foo, (Bar, Size))

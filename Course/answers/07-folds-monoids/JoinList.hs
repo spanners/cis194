@@ -39,6 +39,7 @@ example = Append (Product 210)
 sizeJ :: (Sized b, Monoid b) => JoinList b a -> Int
 sizeJ = getSize . size . tag
 
+-- I am starting to think that this definition must be wrong.
 indexJ :: (Sized b, Monoid b) => Int -> JoinList b a -> Maybe a
 indexJ _ Empty             = Nothing
 indexJ i _  | i < 0        = Nothing
@@ -53,19 +54,19 @@ jlToList Empty            = []
 jlToList (Single _ a)     = [a]
 jlToList (Append _ l1 l2) = jlToList l1 ++ jlToList l2
 
-instance Arbitrary (JoinList (Sum Int) Char) where
+instance Arbitrary (JoinList (Sum Integer) Char) where
     arbitrary = sized joinList'
       where joinList' 0       = pure Empty
             joinList' n | n>0 = 
-                oneof [ liftM2 Single (pure (Sum n)) arbitrary
-                      , liftM3 Append (pure (Sum n)) subList subList
+                oneof [ liftM2 Single (pure (Sum (fromIntegral n))) arbitrary
+                      , liftM3 Append (pure (Sum (fromIntegral n))) subList subList 
                       ] 
-                  where subList = joinList' (n `div` 2)
+                  where subList = joinList' (n - 1)
 
--- sample (arbitrary :: Gen (JoinList (Sum Int) Char))
+getSample = sample (arbitrary :: Gen (JoinList (Sum Integer) Char))
 
---prop_indexJ :: (Arbitrary m, Sized m, Monoid m, Arbitrary a, Eq a) => Int -> JoinList m a -> Bool
---prop_indexJ i jl = (indexJ i jl) == (jlToList jl !? i)
+prop_indexJ :: Int -> JoinList (Sum Integer) Char -> Bool
+prop_indexJ i jl = (indexJ i jl) == (jlToList jl !? i)
 
 runTests :: IO Bool
 runTests = $(quickCheckAll)
