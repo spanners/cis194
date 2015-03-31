@@ -27,6 +27,3 @@ instance Sized b => Sized (a,b) where
 instance Monoid Size where
   mempty  = Size 0
   mappend = (+)
-
-instance Arbitrary (Sized a) where
-    arbitrary = 1
