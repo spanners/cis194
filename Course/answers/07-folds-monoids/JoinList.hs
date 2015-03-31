@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -Wall #-}
 {-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE NoMonomorphismRestriction #-}
 
 module JoinList where
 
@@ -14,7 +15,7 @@ data JoinList m a = Empty
   deriving (Eq, Show)
 
 jTree = sized jTree'
-jTree' 0 = liftM3 Single arbitrary arbitrary
+jTree' 0 = liftM2 Single arbitrary arbitrary
 jTree' n | n>0 = 
     oneof [liftM2 Single arbitrary arbitrary,
            liftM3 Append arbitrary subtree subtree]
