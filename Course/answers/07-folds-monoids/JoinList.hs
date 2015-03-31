@@ -21,13 +21,16 @@ jTree' n | n>0 =
            liftM3 Append arbitrary subtree subtree]
              where subtree = jTree' (n `div` 2)
 
-instance Arbitrary (JoinList (Monoid m) (Sized a)) where
+instance (Arbitrary a, Sized a) => Arbitrary (JoinList Size a) where
   arbitrary = sized jTree'
-    where jTree' 0 = liftM2 Single arbitrary arbitrary
+    where jTree' 0 = liftM2 Single thing arbitrary
           jTree' n | n>0 = 
-              oneof [liftM2 Single arbitrary arbitrary,
-                    liftM3 Append arbitrary subtree subtree]
-            where subtree = jTree' (n `div` 2)
+              oneof [ liftM2 Single thing arbitrary
+                    , liftM3 Append thing (jTree' (n `div` 2)) (jTree' (n `div` 2))]
+          thing = do 
+                    s <- arbitrary
+                    return $ size s
+            
 
 tag :: Monoid m => JoinList m a -> m
 tag Empty = mempty
