@@ -1,4 +1,5 @@
 {-# OPTIONS_GHC -Wall #-}
+{-# LANGUAGE FlexibleInstances #-}
 
 module JoinList where
 
@@ -19,7 +20,7 @@ jTree' n | n>0 =
            liftM3 Append arbitrary subtree subtree]
              where subtree = jTree' (n `div` 2)
 
-instance Arbitrary JoinList where
+instance Arbitrary (JoinList (Monoid m) (Sized a)) where
   arbitrary = sized jTree'
     where jTree' 0 = liftM2 Single arbitrary arbitrary
           jTree' n | n>0 = 
