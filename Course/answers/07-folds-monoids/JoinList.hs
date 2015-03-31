@@ -1,6 +1,7 @@
 {-# OPTIONS_GHC -Wall #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE NoMonomorphismRestriction #-}
+{-# LANGUAGE ScopedTypeVariables #-}
 
 module JoinList where
 
@@ -23,14 +24,14 @@ jTree' n | n>0 =
 
 instance (Arbitrary a, Sized a) => Arbitrary (JoinList Size a) where
   arbitrary = sized jTree'
-    where jTree' 0 = liftM2 Single thing arbitrary
+    where jTree' 0 = liftM2 Single (fmap size arbitrary) arbitrary
           jTree' n | n>0 = 
-              oneof [ liftM2 Single thing arbitrary
-                    , liftM3 Append thing (jTree' (n `div` 2)) (jTree' (n `div` 2))]
-          thing = do 
-                    s <- arbitrary
-                    return $ size s
-            
+              oneof [ liftM2 Single (fmap size arbitrary) arbitrary
+                    , liftM3 Append (fmap size arbitrary) (jTree' (n `div` 2)) (jTree' (n `div` 2))]
+          thing :: Integral
+          thing = do
+                     x <- arbitrary
+                     return $ size x
 
 tag :: Monoid m => JoinList m a -> m
 tag Empty = mempty
