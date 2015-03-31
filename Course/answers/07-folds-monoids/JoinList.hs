@@ -4,11 +4,28 @@ module JoinList where
 
 import Data.Monoid
 import Sized
+import Test.QuickCheck
+import Control.Monad
 
 data JoinList m a = Empty
     | Single m a
     | Append m (JoinList m a) (JoinList m a)
   deriving (Eq, Show)
+
+jTree = sized jTree'
+jTree' 0 = liftM3 Single arbitrary arbitrary
+jTree' n | n>0 = 
+    oneof [liftM2 Single arbitrary arbitrary,
+           liftM3 Append arbitrary subtree subtree]
+             where subtree = jTree' (n `div` 2)
+
+instance Arbitrary JoinList where
+  arbitrary = sized jTree'
+    where jTree' 0 = liftM2 Single arbitrary arbitrary
+          jTree' n | n>0 = 
+              oneof [liftM2 Single arbitrary arbitrary,
+                    liftM3 Append arbitrary subtree subtree]
+            where subtree = jTree' (n `div` 2)
 
 tag :: Monoid m => JoinList m a -> m
 tag Empty = mempty
@@ -43,3 +60,5 @@ jlToList :: JoinList m a -> [a]
 jlToList Empty            = []
 jlToList (Single _ a)     = [a]
 jlToList (Append _ l1 l2) = jlToList l1 ++ jlToList l2
+
+    
