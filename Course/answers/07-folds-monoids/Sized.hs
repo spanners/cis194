@@ -2,6 +2,7 @@
 module Sized where
 
 import Data.Monoid
+import Test.QuickCheck
 
 newtype Size = Size Int
   deriving (Eq, Ord, Show, Num)
@@ -27,3 +28,5 @@ instance Monoid Size where
   mempty  = Size 0
   mappend = (+)
 
+instance Arbitrary (Sized a) where
+    arbitrary = 1
