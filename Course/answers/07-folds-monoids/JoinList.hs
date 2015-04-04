@@ -20,13 +20,6 @@ data JoinList m a = Empty
 instance (Arbitrary a, Sized a) => Arbitrary (JoinList Size a) where
   arbitrary = sized jTree'
 
-jTree' :: (Arbitrary a1, Arbitrary a2) => Int -> Gen (JoinList a1 a2)
-jTree' 0 = liftM2 Single arbitrary arbitrary
-jTree' n | n>0 =
-    oneof [ liftM2 Single arbitrary arbitrary
-          , liftM3 Append arbitrary subtree subtree ]
-      where subtree = jTree' (n `div` 2)
-
 tag :: Monoid m => JoinList m a -> m
 tag Empty = mempty
 tag (Single m _) = m
@@ -61,13 +54,24 @@ jlToList Empty            = []
 jlToList (Single _ a)     = [a]
 jlToList (Append _ l1 l2) = jlToList l1 ++ jlToList l2
 
-(!?) = undefined
+(!!?) :: [a] -> Int -> Maybe a
+[] !!? _ = Nothing
+_ !!? i | i < 0 = Nothing
+(x:xs) !!? 0 = Just x
+(x:xs) !!? i = xs !!? (i-1)
 
---prop_indexJ :: (Monoid m, Sized m, Eq a) => Int -> JoinList m a -> Bool
---prop_indexJ i jl = (indexJ i jl) == (jlToList jl !? i)
+jTree' :: (Arbitrary a1, Arbitrary a2) => Int -> Gen (JoinList a1 a2)
+jTree' 0 = liftM2 Single arbitrary arbitrary
+jTree' n | n>0 =
+    oneof [ liftM2 Single arbitrary arbitrary
+          , liftM3 Append arbitrary subtree subtree ]
+      where subtree = jTree' (n `div` 2)
+
+prop_indexJ :: Int -> (JoinList Size Size) -> Bool
+prop_indexJ i jl = (indexJ i jl) == (jlToList jl !!? i)
 
 runTests :: IO Bool
 runTests = $(quickCheckAll)
 
--- main :: IO Bool
--- main = quickCheck prop_indexJ
+main :: IO ()
+main = quickCheck prop_indexJ
