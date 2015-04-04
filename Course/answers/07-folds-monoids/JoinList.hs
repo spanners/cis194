@@ -20,14 +20,12 @@ data JoinList m a = Empty
 instance (Arbitrary a, Sized a) => Arbitrary (JoinList Size a) where
   arbitrary = sized jTree'
 
-jTree' :: (Arbitrary a2) => Int -> Gen (JoinList a1 a2)
-jTree' 0 = liftM2 Single m arbitrary
+jTree' :: (Arbitrary a1, Arbitrary a2) => Int -> Gen (JoinList a1 a2)
+jTree' 0 = liftM2 Single arbitrary arbitrary
 jTree' n | n>0 =
-    oneof [ liftM2 Single m arbitrary
-          , liftM3 Append m subtree subtree ]
+    oneof [ liftM2 Single arbitrary arbitrary
+          , liftM3 Append arbitrary subtree subtree ]
       where subtree = jTree' (n `div` 2)
-
-m = undefined
 
 tag :: Monoid m => JoinList m a -> m
 tag Empty = mempty

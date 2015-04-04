@@ -5,7 +5,7 @@ import Data.Monoid
 import Test.QuickCheck
 
 newtype Size = Size Int
-  deriving (Eq, Ord, Show, Num)
+  deriving (Eq, Ord, Show, Num, Arbitrary)
 
 getSize :: Size -> Int
 getSize (Size i) = i
