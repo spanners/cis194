@@ -2,12 +2,14 @@
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE NoMonomorphismRestriction #-}
 {-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TemplateHaskell #-}
 
 module JoinList where
 
 import Data.Monoid
 import Sized
 import Test.QuickCheck
+import Test.QuickCheck.All
 import Control.Monad
 
 data JoinList m a = Empty
@@ -15,23 +17,14 @@ data JoinList m a = Empty
     | Append m (JoinList m a) (JoinList m a)
   deriving (Eq, Show)
 
-jTree = sized jTree'
-jTree' 0 = liftM2 Single arbitrary arbitrary
-jTree' n | n>0 = 
-    oneof [liftM2 Single arbitrary arbitrary,
-           liftM3 Append arbitrary subtree subtree]
-             where subtree = jTree' (n `div` 2)
-
 instance (Arbitrary a, Sized a) => Arbitrary (JoinList Size a) where
   arbitrary = sized jTree'
-    where jTree' 0 = liftM2 Single (fmap size arbitrary) arbitrary
+    where jTree' 0 = liftM2 Single m arbitrary
           jTree' n | n>0 = 
-              oneof [ liftM2 Single (fmap size arbitrary) arbitrary
-                    , liftM3 Append (fmap size arbitrary) (jTree' (n `div` 2)) (jTree' (n `div` 2))]
-          thing :: Integral
-          thing = do
-                     x <- arbitrary
-                     return $ size x
+              oneof [ liftM2 Single m arbitrary
+                    , liftM3 Append m subtree subtree]
+                where subtree = jTree' (n `div` 2)
+          m = fmap size (arbitrary :: Gen Int)
 
 tag :: Monoid m => JoinList m a -> m
 tag Empty = mempty
@@ -67,4 +60,11 @@ jlToList Empty            = []
 jlToList (Single _ a)     = [a]
 jlToList (Append _ l1 l2) = jlToList l1 ++ jlToList l2
 
-    
+prop_indexJ :: (Monoid m, Sized m, Eq a) => Int -> JoinList m a -> Bool
+prop_indexJ i jl = (indexJ i jl) == (jlToList jl !? i)
+
+runTests :: IO Bool
+runTests = $(quickCheckAll)
+
+-- main :: IO Bool
+-- main = quickCheck prop_indexJ
