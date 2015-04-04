@@ -1,4 +1,4 @@
-{-# OPTIONS_GHC -Wall #-}
+--{-# OPTIONS_GHC -Wall #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE NoMonomorphismRestriction #-}
 {-# LANGUAGE ScopedTypeVariables #-}
@@ -19,12 +19,15 @@ data JoinList m a = Empty
 
 instance (Arbitrary a, Sized a) => Arbitrary (JoinList Size a) where
   arbitrary = sized jTree'
-    where jTree' 0 = liftM2 Single m arbitrary
-          jTree' n | n>0 = 
-              oneof [ liftM2 Single m arbitrary
-                    , liftM3 Append m subtree subtree]
-                where subtree = jTree' (n `div` 2)
-          m = fmap size (arbitrary :: Gen Int)
+
+jTree' :: (Arbitrary a2) => Int -> Gen (JoinList a1 a2)
+jTree' 0 = liftM2 Single m arbitrary
+jTree' n | n>0 =
+    oneof [ liftM2 Single m arbitrary
+          , liftM3 Append m subtree subtree ]
+      where subtree = jTree' (n `div` 2)
+
+m = undefined
 
 tag :: Monoid m => JoinList m a -> m
 tag Empty = mempty
@@ -60,8 +63,10 @@ jlToList Empty            = []
 jlToList (Single _ a)     = [a]
 jlToList (Append _ l1 l2) = jlToList l1 ++ jlToList l2
 
-prop_indexJ :: (Monoid m, Sized m, Eq a) => Int -> JoinList m a -> Bool
-prop_indexJ i jl = (indexJ i jl) == (jlToList jl !? i)
+(!?) = undefined
+
+--prop_indexJ :: (Monoid m, Sized m, Eq a) => Int -> JoinList m a -> Bool
+--prop_indexJ i jl = (indexJ i jl) == (jlToList jl !? i)
 
 runTests :: IO Bool
 runTests = $(quickCheckAll)
