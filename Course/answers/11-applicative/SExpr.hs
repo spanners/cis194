@@ -2,6 +2,8 @@
    due Monday, 8 April
 -}
 
+{-# LANGUAGE UnicodeSyntax #-}
+
 module SExpr where
 
 import AParser
@@ -11,20 +13,25 @@ import Control.Applicative
 --  1. Parsing repetitions
 ------------------------------------------------------------
 
-zeroOrMore :: Parser a -> Parser [a]
-zeroOrMore p = undefined
+-- Holy mackerel! These are two beautiful, mutually recursive definitions ♥
 
-oneOrMore :: Parser a -> Parser [a]
-oneOrMore p = undefined
+zeroOrMore ∷ Parser a → Parser [a]
+zeroOrMore p = oneOrMore p <|> pure []
+
+oneOrMore ∷ Parser a → Parser [a]
+oneOrMore p = (:) <$> p <*> zeroOrMore p
+
+-- If Haskell had idiom brackets, oneOrMore could look like this:
+-- oneOrMore p = ⟦ p : zeroOrMore p ⟧
 
 ------------------------------------------------------------
 --  2. Utilities
 ------------------------------------------------------------
 
-spaces :: Parser String
+spaces ∷ Parser String
 spaces = undefined
 
-ident :: Parser String
+ident ∷ Parser String
 ident = undefined
 
 ------------------------------------------------------------
