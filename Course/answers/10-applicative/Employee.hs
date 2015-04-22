@@ -1,7 +1,8 @@
 module Employee where
 
-import AParser (Parser, char, runParser, posInt)
+import AParser (Parser, char, satisfy, runParser, posInt)
 import Control.Applicative
+import Data.Char
 
 type Name = String
 data Employee = Emp { name :: Name, phone :: String }
@@ -24,5 +25,11 @@ abParser_ = (\_ -> ()) <$> abParser
 intPair :: Parser [Integer]
 intPair = (\a _ b -> [a,b]) <$> posInt <*> (char ' ') <*> posInt
 
--- runParser abParser "abcdef"
--- Just ((’a’,’b’),"cdef")
+oneInt :: Parser ()
+oneInt = (\_ -> ()) <$> posInt
+
+upper :: Parser ()
+upper = (\_ -> ()) <$> satisfy isUpper
+
+intOrUppercase :: Parser ()
+intOrUppercase = (\_ -> ()) <$> upper <|> oneInt
