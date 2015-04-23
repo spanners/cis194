@@ -62,4 +62,4 @@ upper ∷ Parser ()
 upper = (\_ → ()) <$> satisfy isUpper
 
 intOrUppercase ∷ Parser ()
-intOrUppercase = (\_ → ()) <$> upper <|> oneInt
+intOrUppercase = upper <|> oneInt
