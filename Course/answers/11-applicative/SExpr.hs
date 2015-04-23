@@ -30,10 +30,7 @@ oneOrMore p = (:) <$> p <*> zeroOrMore p
 ------------------------------------------------------------
 
 spaces ∷ Parser String
-spaces = (:) <$> satisfy isSpace <*> spaces
+spaces = zeroOrMore (satisfy isSpace)
 
 ident ∷ Parser String
-ident = (:) <$> satisfy isAlpha <*> alphaNums
-
-alphaNums :: Parser String
-alphaNums = (:) <$> satisfy isAlphaNum <*> ident
+ident = (:) <$> satisfy isAlpha <*> zeroOrMore (satisfy isAlphaNum)
