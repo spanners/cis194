@@ -34,3 +34,25 @@ spaces = zeroOrMore (satisfy isSpace)
 
 ident ∷ Parser String
 ident = (:) <$> satisfy isAlpha <*> zeroOrMore (satisfy isAlphaNum)
+
+------------------------------------------------------------
+--  3. S-Expression parsing
+------------------------------------------------------------
+
+type Ident = String
+
+data Atom = N Integer | I Ident
+    deriving Show
+
+data SExpr = A Atom
+           | Comb [SExpr]
+    deriving Show
+
+parseSExpr :: Parser SExpr
+parseSExpr = undefined
+
+{-
+ 
+ `p1 *> p2` runs p1 and p2 in sequence, but ignores the result of p1 and just returns the result of p2
+
+-}
