@@ -48,11 +48,15 @@ data SExpr = A Atom
            | Comb [SExpr]
     deriving Show
 
-parseSExpr :: Parser SExpr
-parseSExpr = undefined
+atom ∷ Parser Atom
+atom = N <$> posInt <|> I <$> ident
 
-{-
- 
- `p1 *> p2` runs p1 and p2 in sequence, but ignores the result of p1 and just returns the result of p2
+parseSExpr ∷ Parser SExpr
+parseSExpr =   
+    A    <$> ( spaces *> atom <* spaces )
 
--}
+    <|> 
+
+    Comb <$> ( spaces *> char '(' *> spaces *> 
+                   zeroOrMore parseSExpr
+               <* spaces <* char ')' <* spaces )
