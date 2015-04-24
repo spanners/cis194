@@ -58,7 +58,7 @@ battle' b aDice dDice =
            (sortBy (flip compare) dDice))
  
 example :: Battlefield
-example = Battlefield 93 96
+example = Battlefield 72 96
 
 result :: Battlefield
 result = evalRand (battle example) (mkStdGen 4)
@@ -77,6 +77,9 @@ successProb b = do
 
 isDefeated :: Battlefield -> Bool
 isDefeated b = defenders b == 0
+
+probResult :: Double
+probResult = evalRand (successProb example) (mkStdGen 4)
 
 exactSuccessProb :: Battlefield -> Double
 exactSuccessProb = undefined
