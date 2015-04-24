@@ -3,6 +3,7 @@
 module Risk where
 
 import Control.Monad.Random
+import Control.Monad.Loops
 import Control.Monad
 import Data.List
 
@@ -63,7 +64,7 @@ result :: Battlefield
 result = evalRand (battle example) (mkStdGen 4)
 
 invade :: Battlefield -> Rand StdGen Battlefield
-invade b = undefined
+invade = iterateUntilM isEndGame battle
 
 isEndGame :: Battlefield -> Bool
 isEndGame b = defenders b == 0 || attackers b < 2
