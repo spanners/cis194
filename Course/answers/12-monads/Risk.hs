@@ -68,3 +68,15 @@ invade = iterateUntilM isEndGame battle
 
 isEndGame :: Battlefield -> Bool
 isEndGame b = defenders b == 0 || attackers b < 2
+
+successProb :: Battlefield -> Rand StdGen Double
+successProb b = do
+                  is <- replicateM 1000 (invade b)
+                  let wins = length (filter isDefeated is)
+                  return (fromIntegral wins / 1000)
+
+isDefeated :: Battlefield -> Bool
+isDefeated b = defenders b == 0
+
+exactSuccessProb :: Battlefield -> Double
+exactSuccessProb = undefined
