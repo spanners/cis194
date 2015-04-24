@@ -1,3 +1,3 @@
-# CIS 194: Introduction to Haskell (Spring 2013)
+# Answers
 
-http://www.seas.upenn.edu/~cis194/spring13/index.html
+Contains answers to the exercises in course/exercises
