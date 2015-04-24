@@ -61,3 +61,9 @@ example = Battlefield 93 96
 
 result :: Battlefield
 result = evalRand (battle example) (mkStdGen 4)
+
+invade :: Battlefield -> Rand StdGen Battlefield
+invade b = undefined
+
+isEndGame :: Battlefield -> Bool
+isEndGame b = defenders b == 0 || attackers b < 2
