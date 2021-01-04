@@ -1,4 +1,4 @@
-# CIS194
+# haskell-course-cis194
 
 "CIS194" is the course code of a course taught at The University of
 Pennsylvania, called "Introduction to Haskell". This specific set of answers is
